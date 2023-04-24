@@ -1,0 +1,14 @@
+class Solution(object):
+    def twoSum(self, numbers, target):
+        lf=0
+
+        rf=len(numbers)-1
+
+        while lf<rf:
+            if numbers[lf]+numbers[rf]==target:
+                return list((lf+1,rf+1))
+            elif numbers[lf]+numbers[rf]>target:
+                rf=rf-1
+            else:
+                lf=lf+1
+            
