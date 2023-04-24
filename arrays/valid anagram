@@ -1,0 +1,17 @@
+class Solution(object):
+    def isAnagram(self, s, t):
+        if len(s)!=len(t):
+            return False
+        l=[]
+        for i in s:
+           l.append(i)
+        for j in t:
+            if j in l:
+                pass
+                l.remove(j)
+            
+            else:
+                return False
+        return True
+        
+    
