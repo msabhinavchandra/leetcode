@@ -1,0 +1,28 @@
+class Solution(object):
+    def maximizeSum(self, nums, k):
+        if 1<=k<=100:
+            pass
+            summ=0
+            if 1<=len(nums)<=100:
+                pass
+                for i in range(len(nums)):
+                    if 1<=nums[i]<=100:
+                        pass
+                    else:
+                        return 0
+                    for j in range(k):
+                        # v=len(nums)-1
+                        # g=nums[v]
+                        k=max(nums)+j
+                        summ=summ+k
+                        # nums[v]=g+1
+                        k=k+1
+                        # nums.replace(g,g+1)
+                        
+                    return summ
+                    
+                   
+            else:
+                return 0
+        else:
+            return 0
