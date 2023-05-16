@@ -1,0 +1,36 @@
+class Solution(object):
+    def wordPattern(self, pattern, s):
+        import re
+        l=re.split("\s",s)
+        d={}
+        d2={}
+        d3=True
+        if len(l)!=len(pattern):
+            return False
+        
+        for i in range(len(pattern)):
+            if pattern[i] not in d:
+                d[pattern[i]]=l[i]
+            else:
+                if l[i]!=d[pattern[i]]:
+                    return False
+        # if len(l)!=len(pattern):
+        #     return False
+        for i in range(len(l)):
+            if l[i] not in d2:
+                d2[l[i]]=pattern[i]
+            else:
+                if pattern[i]!=d2[l[i]]:
+                    return False
+
+        return True
+            # return d3
+        
+
+        """
+        :type pattern: str
+        :type s: str
+        :rtype: bool
+        """
+        #alternate
+        
