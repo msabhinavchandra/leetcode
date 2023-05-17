@@ -48,4 +48,23 @@ class Solution(object):
         :rtype: List[int]
         """
         #alternate
+        class Solution:
+    def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        d = {}
+        for i in range(len(nums1)):
+            d[nums1[i]]=i
+        stack = []
+        l = [-1] * len(nums1)
+        for i in range(len(nums2)):
+            cur=nums2[i]
+            while stack and cur>stack[-1]:
+                val=stack.pop()
+                idx=d[val]
+                l[idx]=cur
+            
+            if cur in d:
+                stack.append(cur)
+        return l
+
+        
         
