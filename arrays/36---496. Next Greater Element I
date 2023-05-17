@@ -1,0 +1,51 @@
+class Solution(object):
+    def nextGreaterElement(self, nums1, nums2):
+        lis=[]
+        for i in range(len(nums1)):
+            lis.append(-1)
+            
+        for i in range(len(nums1)):
+            temp=nums1[i]
+            tempindex=nums2.index(temp)
+            for j in range(tempindex,len(nums2)):
+                if nums2[j]>temp:
+                    lis[i]=nums2[j]
+                if lis[i]!=-1:
+                    break
+            # if len(lis)!=i+1:
+            #     lis.append(-1)
+        return lis
+
+
+        """
+        :type nums1: List[int]
+        :type nums2: List[int]
+        :rtype: List[int]
+        """
+        #alternate
+        class Solution(object):
+    def nextGreaterElement(self, nums1, nums2):
+        d={}
+        lis=[]
+        for i in range(len(nums1)):
+            lis.append(-1)
+
+        for i in range(len(nums1)):
+            if nums1[i] not in d:
+                d[nums1[i]]=i
+        for i in range(len(nums2)):
+            if nums2[i] in d:
+                for j in range(i,len(nums2)):
+                    if nums2[j]>nums2[i]:
+                        lis[d[nums2[i]]]=nums2[j]
+                    if lis[d[nums2[i]]]!=-1:
+                        break
+        return lis
+
+        """
+        :type nums1: List[int]
+        :type nums2: List[int]
+        :rtype: List[int]
+        """
+        #alternate
+        
