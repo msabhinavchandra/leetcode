@@ -1,0 +1,8 @@
+
+class Solution:
+    def printTriangle(self, N):
+        for i in range(N):
+            for j in range(i,N):
+                print("*",end=" ")
+            print("")
+        # Code here
