@@ -13,5 +13,27 @@ class Solution(object):
             else:
                 return False
         return True
-        
+#alternate
+class Solution(object):
+    def isAnagram(self, s, t):
+        d={}
+        c={}
+        for i,n in enumerate(s):
+            if n not in d:
+                d[n]=1
+            else:
+                d[n]+=1
+        for i,n in enumerate(t):
+            if n not in c:
+                c[n]=1
+            else:
+                c[n]+=1
+        if c!=d:
+            return False
+        return True
+        """
+        :type s: str
+        :type t: str
+        :rtype: bool
+        """
     
