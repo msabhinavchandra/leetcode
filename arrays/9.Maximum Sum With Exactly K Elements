@@ -26,3 +26,19 @@ class Solution(object):
                 return 0
         else:
             return 0
+#alternate
+class Solution(object):
+    def maximizeSum(self, nums, k):
+        sum=0
+        nums=sorted(nums)
+        for i in range(k):
+            sum=sum+nums[-1]
+            nums[-1]=nums[-1]+1
+        return sum
+
+
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: int
+        """
