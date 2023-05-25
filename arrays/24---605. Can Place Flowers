@@ -32,3 +32,23 @@ class Solution(object):
         :type n: int
         :rtype: bool
         """
+#alternate
+class Solution(object):
+    def canPlaceFlowers(self, flowerbed, n):
+        flowerbed.insert(0,0)
+        flowerbed.insert(len(flowerbed),0)
+        i=1
+        ptr=0
+        counter=0
+        while ptr<len(flowerbed)-2:
+            if flowerbed[ptr:ptr+3]==[0,0,0]:
+                flowerbed[ptr+1]=1
+                counter+=1
+            ptr+=1
+        return n<=counter
+        
+        """
+        :type flowerbed: List[int]
+        :type n: int
+        :rtype: bool
+        """
