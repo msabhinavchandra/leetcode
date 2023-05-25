@@ -43,3 +43,4 @@ class Solution(object):
         :type emails: List[str]
         :rtype: int
         """
+#alternate
