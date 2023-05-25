@@ -5,3 +5,11 @@ class Solution(object):
         if (((-1+(4*n+1)**0.5)/2)%1)==0:
             return int(((-1+(8*n+1)**0.5)/2))
         return int(((-1+(8*n+1)**0.5)/2))
+#alternate
+class Solution(object):
+    def arrangeCoins(self, n):
+            if ((-1+(1+8*n)**0.5)/2)%1==0:
+                return int((-1+(1+8*n)**0.5)//2)
+            else:
+                h=((-1+(1+8*n)**0.5)//2)//1
+                return int(h)
