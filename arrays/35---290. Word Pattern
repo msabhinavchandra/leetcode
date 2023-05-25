@@ -33,4 +33,31 @@ class Solution(object):
         :rtype: bool
         """
         #alternate
-        
+class Solution(object):
+    def wordPattern(self, pattern, s):
+        d={}
+        d2={}
+        import re
+        rel=re.split("\s",s)
+        if len(pattern)!=len(rel):
+            return False
+        for i in range(len(pattern)):
+            if pattern[i] not in d:
+                d[pattern[i]]=rel[i]
+            else:
+                if d[pattern[i]]!=rel[i]:
+                    return False
+        for j in range(len(pattern)):
+            if rel[j] not in d2:
+                d2[rel[j]]=pattern[j]
+            else:
+                if d2[rel[j]]!=pattern[j]:
+                    return False
+        return True
+
+
+        """
+        :type pattern: str
+        :type s: str
+        :rtype: bool
+        """        
