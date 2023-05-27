@@ -19,16 +19,38 @@ class Solution:
 
         return res
         
+#alternate 
+class Solution:
+    def shiftGrid(self, grid: List[List[int]], k: int) -> List[List[int]]:
+        l=[]
+        temp=[]
+        new=[]
+        for i in range(len(grid)):
+            for j in range(len(grid[0])):
+                temp.append(0)
+            new.append(temp)
+            temp=[]
+        def mattolis(self,r:int,c:int)->int:
+            return r*len(grid[0])+c
+        def listomat(self,n:int)->list:
+            r=n//len(grid[0])
+            c=n%len(grid[0])
+            return (r,c)
+        for i in range(len(grid)):
+            for j in range(len(grid[0])):
+                temp=((mattolis(self=9,r=i,c=j)+k)%(len(grid)*len(grid[0])))
+                rn,cn=listomat(self=9,n=temp)
+                new[rn][cn]=grid[i][j]
+                # l[temp]=grid[i][j]
+                # rn,cn=listomat(self=9,n=temp)
+        # for i in range(len(l)):
+        #     rn,cn=listomat(self=9,n=i)
+        #     grid[rn][cn]=i
+
+        return new
+                
+
+                
 
 
 
-
-
-
-
-
-                # # for j in range(len(grid)):#column
-                # if i=len(grid)-2:
-                #     temp=grid[i]
-                # grid[i+1]=grid[i]
-            
