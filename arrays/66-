@@ -1,0 +1,176 @@
+#66 check for prime strive A2Z basic maths
+#striver problem
+def isprime(self,N:int)->bool:
+    counter=0
+    for i in range(1,N+1):
+        if N%i==0:
+            counter+=1
+    if counter==2:
+        return True
+    else:
+        return False
+        
+#***alternate
+class Solution:
+    def isPrime (self, N):
+        import math
+        count=0
+        for i in range(1,int(math.sqrt(N))+1):
+            if N%i==0:
+                count+=1
+                if N//i!=i:
+                    count+=1
+        if count==2:
+            return 1#returns 1 if prime
+        return 0#returns 0 if not
+                
+        # code here
+
+
+#67 Armstrong Numbers
+#User function Template for python3
+class Solution:
+    def armstrongNumber (ob, n)->str:
+        summ=0
+        ini=n
+        while n!=0:
+            summ+=(n%10)**3
+            n=n//10
+        if summ==ini:
+            return "Yes"
+        return "No"
+        
+#68  Print all Divisors
+#mymethod   ,did not run in GFG
+class Solution:
+    
+    def sumOfDivisors(self, N):
+        
+        def findfactsum(self,n:int)->int:
+            import math
+            res=[]
+            for i in range(1,int(math.sqrt(n))+1):
+                if n%i==0:
+                    res.append(i)
+                    if n//i!=i:
+                        res.append(n//i)
+           
+            return sum(res)
+        res=0
+        for i in range(1,N+1):
+            res=res+findfactsum(self=9,n=i)
+            
+        return res
+        
+        
+#69 strings easy Largest Element in Array
+#my method 
+def largest( arr, n):
+    return max(arr)
+
+
+#70 Second Largest GFG 3.1
+#my method
+class Solution:
+
+	def print2largest(self,arr, n):
+	    temp=max(arr)
+	    while temp in arr:
+	        arr.remove(temp)
+	    if arr==[]:
+	        return -1
+	    return max(arr)
+		# code h
+
+#***striver optimized***
+class Solution:
+
+	def print2largest(self,arr, n):
+        def secdmax(self,ar:list)->int:
+            max = ar[0]
+            secmax = -1
+            for i,n in enumerate(ar):
+                if n>max:
+                    secmax=max
+                    max=n
+                elif n>secmax and n<max:
+                    secmax=n
+
+            return secmax
+            
+        k=secdmax(9,ar=arr)
+        return k
+
+
+#71*** A2Z 1752. Check if Array Is Sorted and Rotated
+#mymethod success
+class Solution:
+    def check(self, nums: List[int]) -> bool:
+        temp=list(nums)
+        for i,n in enumerate(temp):
+            nums.append(n)
+            nums.pop(0)
+
+            if nums==sorted(nums):
+            
+                return True
+        return False
+       
+#mymenthod same problems GFG
+class Solution:
+    def arraySortedOrNot(self, arr, n):
+        if arr==sorted(arr):
+            return 1
+        return 0
+        
+
+
+#***72 189. Rotate Array Left Rotate an array by one place and 	Left rotate an array by D places
+class Solution:
+    def rotate(self, nums: List[int], k: int) -> None:
+        temp=list(nums)
+        k=k%len(temp)
+        for i,n in enumerate(temp):
+            if i==len(temp)-k:
+                break
+            nums.append(n)
+            nums.pop(0)
+            
+#striver optimized
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
