@@ -126,6 +126,7 @@ class Solution:
 
 
 #***72 189. Rotate Array Left Rotate an array by one place and 	Left rotate an array by D places
+#mymethod
 class Solution:
     def rotate(self, nums: List[int], k: int) -> None:
         temp=list(nums)
@@ -136,7 +137,38 @@ class Solution:
             nums.append(n)
             nums.pop(0)
             
-#striver optimized
+		#striver optimized
+#left rotate by one place
+def leftrotatebyoneplace(self,n:list)->list:
+    temp=n[0]
+    # i=1
+    for i in range(1,len(n)):
+        n[i-1]=n[i]
+    n[len(n)-1]=temp
+    return n
+    
+#left rotate by n places
+#brute
+def movebydplaces(self,n:list,k:int)->list:
+    k=k%len(n)
+    temp=n[:k]
+    # j=0
+    i=0
+    for i in range(k,len(n)):
+        n[i-k]=n[i]
+        # j+=1
+    # p=0
+    print(i)
+    for j in range(len(n)-k,len(n)):
+        n[j]=temp[j-(len(n)-k)]
+        # p+=1
+    return n
+
+#optimal
+
+    
+
+
 
 
 #73 linear search(Searching an element in a sorted array)GFG
@@ -207,7 +239,32 @@ class Solution:
 	
 
 
-#77 
+#77 Subarray with given sum
+#mycode
+def longestSubarrayWithSumK(a: [int], k: int) -> int:
+
+    # Write your code here
+
+    lf=0
+    rt=0
+    l=[]
+    while rt<len(a):
+        if sum(a[lf:rt+1])==k:
+            l.append(rt-lf+1)
+            # lf+=1
+            rt+=1
+
+        if sum(a[lf:rt+1])>k:
+            lf+=1
+        
+        if sum(a[lf:rt+1])<k:
+            rt+=1
+    
+    return max(l)
+
+#striver
+
+
 
 
 
