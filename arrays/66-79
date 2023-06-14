@@ -443,7 +443,27 @@ class Solution:
 	    return res
 	    
 	    
-80---
+80---''' Write a program to convert given number to words
+Input
+------
+Enter a number:1025                                                                                                     
+
+Output
+-------
+1025 : one thousand twenty five
+
+Print "Length more than 4 is not supported" if length is more than 4"
+'''
+
+#to be done later
+
+
+
+
+#81---House pattern
+
+
+
 
 
 
