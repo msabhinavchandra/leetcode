@@ -464,7 +464,68 @@ Print "Length more than 4 is not supported" if length is more than 4"
 
 
 
+#82---PRINT THE matrix in the spiral form in clockwise
+***vvimpt
+matrix=[[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]]
+def print_clock_elements(self,n:list)->None:
+    top=0
+    down=len(n)
+    left=0
+    right=len(n)
+    dir=0
+    while(top<=down and left<=right):
+        if dir==0:
+            for i in range(top,right):
+                print(n[top][i],end=" ")
+            top+=1
+        elif dir==1:
+            for i in range(top,down):
+                print(n[i][right-1],end=" ")
+            right-=1
+        elif dir==2:
+            for i in range(right-1,left-1,-1):
+                print(n[down-1][i],end=" ")
+            down-=1
+        elif dir==3:
+            for i in range(down-1,top-1,-1):
+                print(n[i][left],end=" ")
+            left+=1
 
+        dir=(dir+1)%4
+
+print_clock_elements(1,matrix)
+
+
+#variation---counter-clockwise
+matrix=[[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]]
+def anti_clockwise(self,n:list)->None:
+    top=0
+    down=len(n)
+    left=0
+    right=len(n)
+    dirr=0
+    while(top<=down and left<=right):
+        if dirr==0:
+            for i in range(top,down):
+                print(n[i][left],end=" ")
+            left+=1
+        if dirr==1:
+            for i in range(left,right):
+                print(n[down-1][i],end=" ")
+            down-=1
+
+        if dirr==2:
+            for i in range(down-1,top-1,-1):
+                print(n[i][right-1],end=" ")
+            right-=1
+
+        if dirr==3:
+            for i in range(right-1,left-1,-1):
+                print(n[top][i],end=" ")
+            top+=1
+        dirr=(dirr+1)%4
+
+anti_clockwise(1,matrix)
 
 
 
