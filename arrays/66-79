@@ -426,7 +426,7 @@ class Solution(object):
         """
 	
 	
-79***---Row with max 1s
+79---Row with max 1s
 #mymethod
 class Solution:
 
