@@ -528,9 +528,52 @@ def anti_clockwise(self,n:list)->None:
 anti_clockwise(1,matrix)
 
 
+83#lower bound, code studio
 
+#my method 
+def lowerBound(arr: [int], n: int, x: int) -> int:
+    
+    # Write your code here
+    # pass
+    if x not in arr and x<min(arr):
+        return x
+    lf,rt=0,len(arr)-1
+    while (lf<=rt):
+        mid=(lf+rt)//2
+        if arr[mid]>=x and arr[mid-1]<x:
+            return mid
+        if arr[mid]>=x and arr[mid-1]>=x:
+            rt=mid-1
+        elif arr[mid]<x:
+            lf=mid+1
+    return n
 
+#striver
+#almost same but will maintain an answer pointer 
+#and keep saving whenever we find the smaller  
+#index..
+#and return it at the end of the while loop
 
+#84--uppper bound
+same but over here its
+strictly greater than the target
+ex:
+def upperBound(arr: [int], x: int, n: int) -> int:
+    # Write your code here.
+    # pass
+    if x>=max(arr):
+        return n
+    lf=0
+    rt=n
+    while(lf<=rt):
+        ans=n
+        mid=(lf+rt)//2
+        if arr[mid]>x:#this is the most important step and an x-factor in this question.
+            ans=mid#overall it's the same as the previous.
+            rt=mid-1
+        else:
+            lf=mid+1
+    return ans 
 
 
 
