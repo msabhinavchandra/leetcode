@@ -576,9 +576,79 @@ def upperBound(arr: [int], x: int, n: int) -> int:
     return ans 
 
 
+#85 
+#leet code binary search 34 problem
+class Solution:
+    def searchRange(self, nums: List[int], target: int) -> List[int]:
+        if target not in nums:
+            return [-1,-1]
+        else:
+            lf=0
+            rt=len(nums)-1
+            st=-1
+            ed=-1
+            while(lf<=rt):
+                mid=(lf+rt)//2
+                if nums[mid]<=target:
+                    st=mid
+                    lf=mid+1
+                else:
+                    rt=mid-1
+            
+            lf=0
+            rt=len(nums)-1
+            while(lf<=rt):
+                mid=(lf+rt)//2
+                if nums[mid]>=target:
+                    ed=mid
+                    rt=mid-1
+                # elif nums[mid]==target:
+                #     break
+                else:
+                    lf=mid+1
+            
+            return [ed,st]
 
 
+#86
+pivot element
 
+def search(arr, n, k):
+    low = 0
+    high = n - 1
+    while low <= high:
+        mid = (low + high) // 2
+
+        # if mid points the target
+        if arr[mid] == k:
+            return mid
+
+        # if left part is sorted
+        if arr[low] <= arr[mid]:
+            if arr[low] <= k and k <= arr[mid]:
+                # element exists
+                high = mid - 1
+            else:
+                # element does not exist
+                low = mid + 1
+        else:  # if right part is sorted
+            if arr[mid] <= k and k <= arr[high]:
+                # element exists
+                low = mid + 1
+            else:
+                # element does not exist
+                high = mid - 1
+    return -1
+
+if __name__ == "__main__":
+    arr = [7, 8, 9, 1, 2, 3, 4, 5, 6]
+    n = 9
+    k = 1
+    ans = search(arr, n, k)
+    if ans == -1:
+        print("Target is not present.")
+    else:
+        print("The index is:", ans)
 
 
 
