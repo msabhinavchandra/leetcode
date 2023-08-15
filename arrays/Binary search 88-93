@@ -157,5 +157,52 @@ def floorSqrt(n):
     return ans
 
 
+#93---nth root bs answers 2nd question
+
+#brute
+
+def NthRoot(n: int, m: int) -> int:
+    for i in range(m):
+        if i**n==m:
+            return i
+        elif i**n>m:
+            break
+    return -1
+
+#striver optimal
+
+#handling the edge cases
+def func(mid, n, m):
+    ans = 1
+    for i in range(1, n + 1):
+        ans *= mid
+        if ans > m:
+            return 2
+    if ans == m:
+        return 1
+    return 0
+
+
+#real solution using binary search
+def NthRoot(n: int, m: int) -> int:
+    # Write Your Code Here
+    # pass
+    lf=1
+    rt=m
+    ans=-1
+    while (lf<=rt):
+        mid=(lf+rt)//2
+        if (mid**n)==m:
+            ans=mid
+            break
+            # lf=mid+
+        elif (mid**n)<m:
+            lf=mid+1
+        else:
+            rt=mid-1
+    if ans!=-1:
+        return ans
+    else:
+        return -1
 
 
