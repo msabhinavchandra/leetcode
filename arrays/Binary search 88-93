@@ -126,8 +126,7 @@ class Solution:
                 lf=mid+1
             elif nums[mid-1]>nums[mid]:
                 rt=mid-1
-            else:
-                rt-mid-1
+    
 
 #92----squareroot of a number
 #BS---4.2----1st problem
