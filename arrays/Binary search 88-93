@@ -204,4 +204,34 @@ def NthRoot(n: int, m: int) -> int:
     else:
         return -1
 
+#94--Koko Eating Bananas(875 leetcode)---python
+
+class Solution:
+    def minEatingSpeed(self, piles: List[int], h: int) -> int:
+        maxi=max(piles)
+        import math
+
+        def calculate_total_hours(self,piles:List[int],curr:int)->int:
+            tot_hours=0
+            for i in range(len(piles)):
+                tot_hours+=math.ceil(piles[i]/curr)
+
+            return tot_hours
+        lf=1
+        rt=maxi
+        while(lf<=rt):
+            mid=(lf+rt)//2
+            tot=calculate_total_hours(1,piles,mid)
+            if(tot<=h):
+                rt=mid-1
+            else:
+                lf=mid+1
+            
+        return lf
+
+#same problem CPP
+
+
+
+
 
