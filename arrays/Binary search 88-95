@@ -232,6 +232,55 @@ class Solution:
 #same problem CPP
 
 
+#95---Minimum days to make M bouquets | Binary Search(leetcode 1482)
+
+class Solution(object):
+    def minDays(self, bloomDay, m, k):
+        """
+        :type bloomDay: List[int]
+        :type m: int
+        :type k: int
+        :rtype: int
+        """
+        def possible(bloomDay,day,m,k):
+            n=len(bloomDay)
+            cnt=0
+            noOfB=0
+            for i in range(n):
+                if bloomDay[i]<=day:
+                    cnt+=1
+                else:
+                    noOfB+=cnt//k
+                    cnt=0
+            noOfB+=cnt//k
+            return noOfB>=m
+
+        
+        val=m*k
+        n=len(bloomDay)
+        if val>n:
+            return -1
+        mini=min(bloomDay)
+        maxi=max(bloomDay)
+
+        lf=mini
+        
+        # temp=list(bloomDay)
+        # temp = sorted(list(set(temp)))
+        ans=0
+        rt=maxi
+        while lf<=rt:
+            mid=(lf+rt)//2
+            if possible(bloomDay,mid,m,k):
+                    ans=mid
+                    rt=mid-1
+            else:
+                    lf=mid+1
+
+        return ans
+        
+
+
 
 
 
