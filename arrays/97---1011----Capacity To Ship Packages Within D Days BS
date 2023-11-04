@@ -1,0 +1,33 @@
+class Solution:
+    def shipWithinDays(self, weights: List[int], days: int) -> int:
+        def cal_num_days(self,weights:list,avg:int)->int:
+            days=1
+            load=0
+            for i in range(len(weights)):
+                if (load+weights[i]>avg):
+                    load=weights[i]
+                    days+=1
+                else:
+                    load+=weights[i]
+            return days
+        lf=max(weights)
+        rt=sum(weights)
+        days_req=0
+        while lf<=rt:
+            mid=(lf+rt)//2
+            days_req=cal_num_days(1,weights,mid)
+            if days_req<=days:
+                ans=mid
+                rt=mid-1
+            else:
+                lf=mid+1
+            # elif days_req==days:
+            #     return mid
+            # else:
+            #     return mid
+        return ans
+            
+
+
+
+        
