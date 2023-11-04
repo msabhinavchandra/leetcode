@@ -1,0 +1,26 @@
+class Solution:
+    def smallestDivisor(self, nums: List[int], threshold: int) -> int:
+        import math
+        def suum(self,nums:list,n:int,threshold:int)->bool:
+            tsum=0
+            for i in nums:
+                tsum+=(math.ceil(i/n))
+
+            return tsum<=threshold
+        lf=1
+        rt=max(nums)
+        while lf<=rt:
+            mid=(lf+rt)//2
+            if suum(1,nums,mid,threshold):
+                rt=mid-1
+            else:
+                lf=mid+1
+        return lf
+        # ans=10**6
+        # for i in nums:
+        #     if suum(1,nums,i,threshold):
+        #         ans=min(ans,i)
+        
+        # return ans
+
+    $cpp code upto come    
