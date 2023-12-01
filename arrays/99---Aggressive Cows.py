@@ -47,8 +47,8 @@ def aggressiveCows(stalls:list, k:int)->int:
         else:
             return False
 
-    low=1
-    high=max(new)
+    low=0
+    high=max(new)-min(new)
     while low<=high:
         mid=(low+high)//2
         if(cows_possible_or_not(new,mid,k)):
