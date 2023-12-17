@@ -35,6 +35,43 @@ if __name__ == "__main__":
     print("The minimum element is:", ans)
 
 
+#more clear alternate solution
+
+class Solution:
+    def findMin(self, nums: List[int]) -> int:
+        # return min(nums)
+        # lf=0
+        # rt=len(nums)-1
+        # while lf<=rt:
+        #     if nums[mid]==min
+
+        low=0
+        high=len(nums)-1
+        ans=1000
+
+        while(low<=high):
+            mid=(low+high)//2
+
+            #base condition.
+
+            if(nums[low]<=nums[high]):
+                ans=min(ans,nums[low])
+                break
+            #earlier i had got an error because i didn't give mid equality case
+            #yet i included low equal to high equality case.
+            #
+            elif(nums[low]<=nums[mid]):#when left side array is sorted
+                ans=min(ans,nums[low])
+                low=mid+1
+            #else:#when the right array is sorted.
+            elif(nums[mid]<=nums[high]):
+
+                ans=min(nums[mid],ans)
+
+                high=mid-1
+
+        return ans
+
 
 #89---Find out how many times has an arra…
 
