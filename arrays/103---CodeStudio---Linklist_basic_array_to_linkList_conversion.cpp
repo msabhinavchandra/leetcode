@@ -138,3 +138,122 @@ int main(){
     display(t);
     return 0;
 }
+
+//other linklist basic operations.
+
+//creating a linklist and adding an element to it at the end of the linklist.as well as displaying the elements in the linklist.
+
+//features
+//adding at head.
+//add at tail.
+
+#include<iostream>
+using namespace std;
+
+class Node{
+    public:
+    int data;
+    Node *next;
+
+    Node(){
+        data=0;
+        next=NULL;
+    }
+    Node(int val){
+        data=val;
+        next=NULL;
+    }
+    Node(Node*&head,int val){
+        data=val;
+        next=head;
+    }
+};
+
+//Adding an element at the head of the link-list
+
+void AddElementHead(Node*&head,int val){
+    Node*n=new Node(val);
+    n->next=head;
+    head=n;
+}
+
+void AddElementTail(Node* &head,int val){
+    Node*temp=head;
+    Node*n=new Node(val);
+    if(head==NULL){
+        head=n;
+        return;
+    }
+
+    while (temp->next!=NULL)
+    {
+        temp=temp->next;
+    }
+
+    temp->next=n;
+    
+}
+
+//delete an element with the value of the element.
+
+void DeleteElement(Node*&head,int val){
+    Node*temp=head;
+
+    //if you want to delete the first node of the linklist.
+    if(head->data==val){
+        Node*ToBeDeleted=head;//over here you need to change the head 
+        head=head->next;//that's why we are taking head instead of temp
+        delete ToBeDeleted;//as we took temp in the tradional code of deletion.
+        return;
+    }
+
+    //if the given head == NULL
+    //then there is nothing we can do.
+    if(head==NULL){
+        return;
+    }
+
+    //If there is only one node in the linked-list
+
+    if(head->next==NULL){
+        delete head;//we will delete that also.
+    }
+
+    while(temp->next->data!=val){//traditional code for deletion of linklist node.
+        temp=temp->next;//with respect to the value given in the nodes.
+    }
+    Node*ToBeDeleted=temp->next;
+    temp->next=temp->next->next;
+
+    delete ToBeDeleted;
+}
+
+void Display(Node*head){
+
+    Node*temp=head;
+
+    while(temp!=NULL){
+        cout<<temp->data<<"->";
+        temp=temp->next;
+    }
+
+    cout<<"NULL"<<endl;
+
+}
+
+int main(){
+
+    Node*head=NULL;
+for(int i=1;i<6;i++){
+    AddElementTail(head,i);
+}
+    Display(head);
+
+    DeleteElement(head,5);
+    AddElementHead(head,0);
+    Display(head);
+    return 0;
+}
+
+
+
