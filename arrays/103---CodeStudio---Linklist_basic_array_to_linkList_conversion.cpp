@@ -1,19 +1,28 @@
-/**
- * Definition of linked list
- * class Node {
- *
- * public:
- *     int data;
- *     Node* next;
- *     Node() : data(0), next(nullptr) {}//
+#include<iostream>
+#include<vector>
+using namespace std;
+
+// int main()
+// {   cout<<"hi bro";
+//     return 0;
+// }
+
+
+ //Definition of linked list
+  class Node {
+ 
+  public:
+     int data;
+      Node* next;
+      Node() : data(0), next(nullptr) {}//
     //default constructor with data=0 and next pointing to NULL.
- *     Node(int x) : data(x), next(nullptr) {}
+      Node(int x) : data(x), next(nullptr) {}
  //parametric constructor, with data==argument given and next pointing to null
 
- *     Node(int x, Node* next) : data(x), next(next) {}
- #di parametric constructor, with data=value given, and next=the argument given.
- * };
- */
+  Node(int x, Node* next) : data(x), next(next) {}
+ //di parametric constructor, with data=value given, and next=the argument given.
+  };
+ 
 // #include<iostream>
 
 
@@ -49,6 +58,25 @@
 
 
 // }
+
+void display(Node*&head){
+    Node *tt=head;//storing the initial head, actual head into a temp
+while(tt!=NULL){
+    
+    cout<<tt->data<<"->";
+    tt=tt->next;
+}
+//now the head is pointing to the NULL
+//swipe back to the had to the original head value(tt in this case)
+//to avoid problems when we use the display fucntion again the 
+//head has to be pointing to the initial node only.
+
+//instead we can not change the value of the head
+//let's take the temp, and run through it without messing with the original 
+//head pointer.
+//head=tt;
+
+}
 
 Node* constructLL(vector<int>& arr) {
 
@@ -89,7 +117,24 @@ Node* constructLL(vector<int>& arr) {
         //temp-next=nextNode. kinda of a thing.
     }
 
-    return head;
+    return head;//this head will be the head
+    //pointing to the initial pointer(the head,initial node of the
+    //linkedlist ) 
+    //we have given this to the temp
+    //temp goes all its wat to make the changes into the former linkedlist
+    //meanwhile not changing the value of the position of the original
+    //head pointer which always points to the initial node of the linklist.
+    
+    //this display fucniton 
 
     // Write your code here
+}
+
+int main(){
+    vector<int> arr={2,5,8,7};
+
+    Node*t=constructLL(arr);
+
+    display(t);
+    return 0;
 }
