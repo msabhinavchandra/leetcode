@@ -100,3 +100,96 @@ int main()
 
 // output:
 // abc/-ak/l-*
+
+
+// REV TIME
+
+#include <iostream>
+using namespace std;
+#include <stack>
+#include <string>
+
+// Precedence Table
+int Precedence(char c)// i will add into stack according to the precedence and i will
+//remove and add into the result according to the precedence.
+{
+    if (c == '^')
+    {
+        return 3;
+    }
+    else if (c == '*' || c == '/')
+    {
+        return 2;
+    }
+    else if (c == '+' || c == '-')
+    {
+        return 1;
+    }
+    else
+    {
+        return -1;
+    }
+}
+
+string infixtoPostfix(string s)
+{
+    string res; // to store the result.
+    stack<char> st;
+    for (int i = 0; i < s.length(); i++)
+    {
+
+        if (s[i] == '(')
+        {
+            st.push(s[i]);
+        }
+        else if (s[i] == ')')
+        {
+            while (!st.empty() && st.top() != '(')
+            {
+                // add whole stack into the result.
+                res += st.top();
+                st.pop();
+            }
+            // when st.top()=='('
+            if (!st.empty() && st.top()=='(')
+            {
+                st.pop();
+            }
+        }
+        else if ((s[i] >= 'a' && s[i] <= 'z') || (s[i] >= 'A' && s[i] <= 'Z'))
+        {
+            res += s[i];
+        }
+        else
+        {
+
+            // if the top element of the stack's precedence is greater than the
+            // current we need to print the existing operators from the
+            // stack into the result.
+            while (!st.empty() && Precedence(st.top()) > Precedence(s[i]))
+            {
+                res += st.top();
+                st.pop();
+            }
+            // add than next operator.
+            st.push(s[i]); // when the current operator is greater then the top
+            // of the existing stack, or once the whole stack is empty
+            // or when the peak element of the stack is '(' or ')'.
+        }
+    }//once the for loop ends, the remaining elements in the stack needed to 
+    //be updated into the result.
+    while(!st.empty()){
+        res+=st.top();
+        st.pop();
+    }
+    return res;
+
+}
+
+int main()
+{
+    cout <<infixtoPostfix("(a+b/c)*(k/j-w)");
+    return 0;
+}
+//output:
+// abc/+kj/w-*
