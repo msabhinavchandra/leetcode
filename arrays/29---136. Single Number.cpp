@@ -27,3 +27,19 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
+
+#alternate KrishnaPriya
+class Solution(object):
+    def singleNumber(self, nums):
+        ans=0
+        for i in range(len(nums)):
+            ans=nums[i]^ans
+        # xor operation-->same ^ same = 0
+        # anything ^ 0 = anything.
+        return ans
+
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+
