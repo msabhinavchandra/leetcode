@@ -138,7 +138,7 @@ bool isBalanced(string s){
             st.push(s[i]);
         }
         // in all those cases where it is not an opening bracket(means it is a closing bracket).
-        else{
+        else{//is a closing bracket
             // if the stack is non-empty and it's closing bracket matches with the opening bracket in the top.  
             if((!st.isempty()) && (isSameType(s[i],st.top()))){
                 st.pop();
@@ -148,8 +148,7 @@ bool isBalanced(string s){
                 return false;
             }
         }
-        
-    }
+        }
     // if the stack is empty , then it is a valid parentheses, else it is not 
     //cuz all the brackets are not satisfied,cuz in valid parentheses ,for every
     // opening there has to be closing paretheses.

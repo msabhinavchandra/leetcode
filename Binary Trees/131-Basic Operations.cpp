@@ -25,9 +25,9 @@ void preorder(Node *root)
     {
         return;
     }
-    cout << root->data << " ";
-    preorder(root->left);
-    preorder(root->right);
+    cout << root->data << " ";//root
+    preorder(root->left);//left 
+    preorder(root->right);//null
     return;
 }
 

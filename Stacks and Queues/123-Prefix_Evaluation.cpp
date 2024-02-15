@@ -20,11 +20,11 @@ int prefixEvaluation(string s)
         // the difference between the ascii values of 2 character will be an integer values
         // which will be pushed into the stack. :)
 
-        if (s[i] >= '0' && s[i] <= '9')
+        if (s[i] >= '0' && s[i] <= '9')//operand
         { // if the char is a digit.
             st.push(s[i] - '0');
         }
-        else
+        else//if this is an operator.
         { // if it is any operator instead of the digit, we need to pop the top elements
           // perform an operations and then push back into the stack again.
             int op1 = st.top();
