@@ -1,4 +1,4 @@
-  #include<iostream>
+#include<iostream>
 using namespace std;
 #define N 5
 int arr[N];
