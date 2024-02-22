@@ -69,7 +69,7 @@ string infixtoPostfix(string s){
         st.push(s[i]);
         //next time when another operator will be encountered, it undergoes the 
         //similar scrutiny, and the checkpoints.
-        }
+        }//end of else statement(of operators)
     }//when this for-loop breaks, we need to check-wheather the stack is 
     //empty or not.
     //at the end of for-loop we might be having more operands which are needed
