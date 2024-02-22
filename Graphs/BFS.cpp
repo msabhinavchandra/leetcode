@@ -21,7 +21,7 @@ class Solution {
             for(auto it : adj[node]) {
                 // if the neighbour has previously not been visited, 
                 // store in Q and mark as visited 
-                if(!vis[it]) {
+                if(vis[it]==0) {
                     vis[it] = 1; 
                     q.push(it); 
                 }
