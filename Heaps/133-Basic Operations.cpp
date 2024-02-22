@@ -99,6 +99,16 @@ public:
     }
 };
 
+void heapSort(int arr[],int n){
+    int size=n;
+    while(size>1){
+        //step1:swap
+        swap(arr[size],arr[1]);
+        size--;
+        heapify(arr,size,1);
+    }
+}
+
 int main()
 {
     heap hp;
