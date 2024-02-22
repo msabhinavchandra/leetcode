@@ -9,7 +9,7 @@ class Solution {
         // traverse all its neighbours
         for(auto it : adj[node]) {
             // if the neighbour is not visited
-            if(!vis[it]) {
+            if(vis[it]==0) {
                 dfs(it, adj, vis, ls); 
             }
         }
