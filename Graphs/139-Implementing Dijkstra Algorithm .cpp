@@ -1,6 +1,8 @@
 //{ Driver Code Starts
 #include<bits/stdc++.h>
 using namespace std;
+//this is implementation of the Dijkstra's algorithm with the help of a 
+//priority queue.
 //TC-->Elog(V)ddd
 //this is not at all applicable for the negative distances.
 // } Driver Code Ends
