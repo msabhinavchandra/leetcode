@@ -1,7 +1,7 @@
 //{ Driver Code Starts
 #include<bits/stdc++.h>
 using namespace std;
-
+//this is not at all applicable for the negative distances.
 // } Driver Code Ends
 class Solution
 {
