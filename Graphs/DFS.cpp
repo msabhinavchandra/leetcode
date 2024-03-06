@@ -16,6 +16,7 @@ class Solution {
     }
   public:
     // Function to return a list containing the DFS traversal of the graph.
+    //it intakes the number of Vertices and the adjacency List
     vector<int> dfsOfGraph(int V, vector<int> adj[]) {
         int vis[V] = {0}; //assuming it starts from 0
         int start = 0;
@@ -51,5 +52,60 @@ int main()
     vector <int> ans = obj.dfsOfGraph(5, adj);
     printAns(ans);
 
+    return 0;
+}
+
+// -------------------------------------------------------------------------
+
+// this is a successfull DFS of a graph for any source node.
+
+#include<iostream>
+#include<vector>
+using namespace std;
+
+void Dfs(int node, vector<int> &Vis,vector<int> adj[],vector<int> &dfs){
+    Vis[node]=1;
+    dfs.push_back(node);
+    for(auto it:adj[node]){
+        if(!Vis[it]){
+            Dfs(it,Vis,adj,dfs);
+        }
+    }
+}
+
+vector<int> dfsOfGraph(vector<int> adj[],int S,int V){
+    vector<int> Vis(V,0);//0-based indexing
+    vector<int> dfs;//where the answer of dfs will be stored.
+    Dfs(S,Vis,adj,dfs);
+    return dfs;
+}
+
+void addEdge(vector<int> adj[],int n,int m){
+    
+    adj[n].push_back(m);
+    adj[m].push_back(n);
+    }
+
+void PrintAns(vector<int> ans){
+    for(int i=0;i<ans.size();i++){
+        cout<<ans[i]<<" ";
+    }
+}
+
+
+int main()
+{
+    vector<int> adj[7];
+    addEdge(adj,0,1);
+    addEdge(adj,1,2);
+    addEdge(adj,2,3);
+    addEdge(adj,3,1);
+    addEdge(adj,3,4);
+    addEdge(adj,3,6);
+    addEdge(adj,6,5);
+    addEdge(adj,4,5);
+    vector<int> dfs=dfsOfGraph(adj,2,7);
+    PrintAns(dfs);
+    
     return 0;
 }
