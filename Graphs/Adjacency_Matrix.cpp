@@ -12,8 +12,8 @@ int main()
     cout << "Enter the number of Vertices in the graph" << endl;
     cin >> n;
     cout << "Enter the number of edges in the graph" << endl;
-    cin >> m;
-    int adj[n + 1][n + 1]; // if the numbering is 1 based take it adj[n][n] if the
+    cin >> m;//initializing all the elments in the 2d array to 0.
+    int adj[n + 1][n + 1]={{0}}; // if the numbering is 1 based/ take it adj[n][n] if the
                            // numbering is 0 based.
     for (int i = 0; i < m; i++)
     { // i am adding all those vertices into the adjacency matrix
@@ -27,10 +27,11 @@ int main()
     }
 
     // printing the adjacent matrix
-
-    for (int i = 0; i < n; i++)
+//because this is 1-based indexing elements will start from 1 to n.(unlike 
+//zero-based 0 to n-1).
+    for (int i = 1; i <= n; i++)
     {
-        for (int j = 0; j < n; j++)
+        for (int j = 1; j <= n; j++)
         {
             cout << adj[i][j] << " ";
         }
