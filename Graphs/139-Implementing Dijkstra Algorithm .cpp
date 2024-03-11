@@ -15,7 +15,8 @@ class Solution
     {   
         //decalaring a priority queue,min heap for storing the 
         // pairs of the nodes along with the shortest distance
-        priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>> pq;
+        priority_queue<pair<int,int>,vector<pair<int,int>>,
+        greater<pair<int,int>>> pq;
         //and this is how you initialize an vector
         //array with the help of size.
         vector<int> dist(V);//we always had a distance array
