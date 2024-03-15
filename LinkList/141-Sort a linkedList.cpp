@@ -1,4 +1,5 @@
 //optimal approach
+//
 /*
 Following is the class structure of the Node class:
 
