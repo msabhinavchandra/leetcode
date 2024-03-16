@@ -2,10 +2,12 @@
 //save into an array
 //merge sort it
 //re arrange into a new linklist.
-
+//time complexity->O(n+nlogn+n) and space complexity->O(n+n) for the array
+// and a new linklist. 
 
 
 //optimal
+//time complexity->O(n1 +n2) space->O(1)
 #include <bits/stdc++.h>
 
 /************************************************************
@@ -63,8 +65,5 @@ Node<int>* sortTwoLists(Node<int>* first, Node<int>* second)
     }
 
     return dummy->next;
-
-
-
     
 }

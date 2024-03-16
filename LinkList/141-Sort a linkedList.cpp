@@ -1,5 +1,12 @@
 //optimal approach
-//
+//time complexity->O((n+n/2)logn) ,n/2 because we are 
+//finding the middle of the linklist which will take 
+// n/2 tc
+//later explore why it is logn? also
+//recursion tree length->logn,length of the tree logn,recursion depth
+//logarithmic of n
+//and it is calling for every n,therefore the tc->nlogn
+//space->O(1),no extra space used.
 /*
 Following is the class structure of the Node class:
 
