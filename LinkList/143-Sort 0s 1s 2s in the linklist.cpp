@@ -1,4 +1,91 @@
 //striver way.
+//more optimized.
+
+/*
+TC->O(n) only for traversal, for just changing nodes no time is required.
+SC->O(1) we are not using any extra space,explore this
+why does he always say that?, cuz your using extra variables right?
+*/
+
+/*
+Following is the class structure of the Node class:
+
+class Node
+{
+public:
+    int data;
+    Node *next;
+    Node()
+    {
+        this->data = 0;
+        next = NULL;
+    }
+    Node(int data)
+    {
+        this->data = data; 
+        this->next = NULL;
+    }
+    Node(int data, Node* next)
+    {
+        this->data = data;
+        this->next = next;
+    }
+};
+*/
+
+Node* sortList(Node *head){
+    // Write your code here.
+    if(head==NULL || head->next==NULL){
+        return head;
+    }
+    Node* dummy0=new Node(-1);
+    Node* temp0=dummy0;
+    Node* dummy1=new Node(-1);
+    Node* temp1=dummy1;
+    Node* dummy2=new Node(-1);
+    Node* temp2=dummy2;
+
+    Node* temp=head;
+
+    while(temp!=NULL){
+
+        if(temp->data==0){
+            temp0->next=temp;
+            temp0=temp;
+            // temp=temp->next;
+
+        }
+        else if(temp->data==1){
+            temp1->next=temp;
+            temp1=temp;
+            // temp=temp->next;
+
+            
+        }
+        else if(temp->data==2){
+            temp2->next=temp;
+            temp2=temp;
+            // temp=temp->next;
+
+        }
+
+        temp=temp->next;
+
+    }//end of while loop.
+
+    temp0->next=(dummy1->next)? (dummy1->next):(dummy2->next);
+    //do a visual dry run , everything will be alright
+    temp1->next=(dummy2->next);
+    temp2->next=NULL;
+    //do a dry run
+    Node* newhead=dummy0->next;
+    delete dummy0;
+    delete dummy1;
+    delete dummy2;
+
+    return newhead;
+   
+}
 
 
 
