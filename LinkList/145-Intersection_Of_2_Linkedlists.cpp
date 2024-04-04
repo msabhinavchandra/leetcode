@@ -43,3 +43,63 @@ Node* findIntersection(Node *firstHead, Node *secondHead)
     return NULL;
 }
 
+//the best with no space 
+
+
+
+Node* goTogerther(Node* large,Node* small,int dif){
+    while(dif!=0){
+        large=large->next;
+        dif--;
+    }
+
+    while(small!=NULL)
+    {
+        if(large==small) return large;
+        large=large->next;
+        small=small->next;
+    }
+
+    return NULL;
+
+}
+
+Node* findIntersection(Node *firstHead, Node *secondHead)
+{
+    //Write your code here
+    Node* temp1=firstHead;
+    Node* temp2=secondHead;
+    int l1=0;
+    int l2=0;
+    while(temp1!=NULL)
+    {   
+        temp1=temp1->next;
+        l1++;
+
+    }
+    while(temp2!=NULL)
+    {   
+        temp2=temp2->next;
+        l2++;
+
+    }
+    int diff;
+    if(l1>l2){
+        diff=l1-l2;
+        return goTogerther(firstHead,secondHead,diff);
+    }
+    else if(l2>l1){
+        diff=l2-l1;
+        return goTogerther(secondHead,firstHead,diff);
+
+    }
+    else{
+        diff=l2-l1;
+        return goTogerther(secondHead,firstHead,diff);
+
+    }
+
+
+
+}
+
