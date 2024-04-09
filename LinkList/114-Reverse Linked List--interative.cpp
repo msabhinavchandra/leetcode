@@ -1,81 +1,58 @@
-//recursive approach:
-// TC->O(n) cuz ur calling it n times,cuz ur traversing to every node.
-//SC->O(n) the stack space it is storing is also n times 
-//recursive stack space 
+// Reverse a linkedList brute force
 
-/****************************************************************
+// Time Complexity: O(2N) This is because we traverse the linked list twice: once to push the values onto 
+// the stack, and once to pop the values and update the linked list. Both traversals take O(N) time, 
+// hence time complexity  O(2N) ~ O(N).
 
-    Following is the class structure of the Node class:
+// Space Complexity: O(N) We use a stack to store the values of the linked list, and in the worst case, the 
+// stack will have all N values,  ie. storing the complete linked list. 
 
-        class Node
-        {
-        public:
-            int data;
-            Node *next;
-            Node()
-            {
-                this->data = 0;
-                next = NULL;
-            }
-            Node(int data)
-            {
-                this->data = data;
-                this->next = NULL;
-            }
-            Node(int data, Node* next)
-            {
-                this->data = data;
-                this->next = next;
-            }
-        };
-        
-
-*****************************************************************/
-
+#include <stack>
+#include <bits/stdc++.h>
 Node* reverseLinkedList(Node *head)
 {
     // Write your code here
-    if(head==NULL || head->next==NULL){
-        return head;
+    Node* temp=head;
+    stack<int> stk;
+
+    while(temp!=NULL){
+        stk.push(temp->data);
+        temp=temp->next;
     }
-    Node* newhead=reverseLinkedList(head->next);
-    Node* front=head->next;
-    front->next=head;
-    head->next=NULL;
-    return newhead;
+    temp=head;
+    while(temp!=NULL)
+    {
+        temp->data=stk.top();
+        stk.pop();
+        temp=temp->next;
+
+    }
+
+    return head;
 
 }
 
 
+// optimal iterative
+// 
+//Time Complexity: O(N) The code traverses the entire linked list once, where 'n' is the number of nodes 
+// in the list. This traversal has a linear time complexity, O(n).
+
+// Space Complexity: O(1) The code uses only a constant amount of additional space, regardless of the linked
+// list's length. This is achieved by using three pointers (prev, temp and front) to reverse the list without
+// any significant extra memory usage, resulting in constant space complexity, O(1).
 
 
 #include <bits/stdc++.h>
 
-/****************************************************************
 
-    Following is the class structure of the LinkedListNode class:
-
-    template <typename T>
-    class LinkedListNode
-    {
-    public:
-        T data;
-        LinkedListNode<T> *next;
-        LinkedListNode(T data)
-        {
-            this->data = data;
-            this->next = NULL;
-        }
-    };
-
-*****************************************************************/
 
 LinkedListNode<int> *reverseLinkedList(LinkedListNode<int> *head) 
 {
 
     LinkedListNode<int> *curr=head;
     LinkedListNode<int> *prev=NULL;
-        LinkedListNode<int> *next;
+    LinkedListNode<int> *next;
 
 
     while(curr!=NULL){

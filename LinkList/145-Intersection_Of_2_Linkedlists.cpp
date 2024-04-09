@@ -43,10 +43,11 @@ Node* findIntersection(Node *firstHead, Node *secondHead)
     return NULL;
 }
 
-//the best with no space 
+//the best solution with no space complexity
+//sc->O(1)
+//tc->O(2*max(len of list1,len of list2)+O(abs(len of list1-len of list2))+O(min(len of list1,len of list2)))
 
-
-
+//this is my way same method i will show you a different one with the same code.
 Node* goTogerther(Node* large,Node* small,int dif){
     while(dif!=0){
         large=large->next;
@@ -98,8 +99,83 @@ Node* findIntersection(Node *firstHead, Node *secondHead)
         return goTogerther(secondHead,firstHead,diff);
 
     }
+}
+
+// same method more organized code.
 
 
+int getDifference(Node* head1,Node* head2)
+{
+    int len1=0,len2=0;
+    //loop till both reach their end.
+    while(head1!=NULL||head2!=NULL)
+    {
+        if(head1!=NULL){
+            ++len1; head1=head1->next;
+        }
+        if(head2!=NULL)
+        {
+            ++len2;head2=head2->next;
+        }
+    }
+
+    return len1-len2;
+    //if it was negative it shows that the ll2 is longer than the ll1
 
 }
+
+Node* findIntersection(Node *firstHead, Node *secondHead)
+{
+    //Write your code here
+    Node* temp1=firstHead;
+    Node* temp2=secondHead;
+
+    int diff=getDifference(temp1, temp2);
+    if(diff<0)
+            while(diff++!=0) temp2=temp2->next;//ll2 is longer.
+    else while(diff--!=0) temp1=temp1->next;//ll1 is longer.
+
+    //now both are starting from the same point
+    while(temp1!=NULL)
+    {
+        if(temp1==temp2) return temp2;
+        temp2=temp2->next;
+        temp1=temp1->next;
+    }
+
+    return temp1;
+    
+}
+
+// optimized.
+
+// tc->O(2*max(Length of LL1,Len of LL2))
+//do a dry run for clarification
+//sc->O(1) //we are not saving anything.
+
+
+Node* findIntersection(Node *firstHead, Node *secondHead)
+{
+    //Write your code here
+    Node* temp1=firstHead;
+    Node* temp2=secondHead;
+
+    while(temp1!=temp2)
+    {   
+        temp2=temp2->next;
+        temp1=temp1->next;
+
+        if(temp1==temp2) return temp2;
+        if(temp2==NULL) temp2=firstHead;
+        if(temp1==NULL) temp1=secondHead;
+
+    }
+
+    //in an edge case where there are 2 LLs whoose lenth is 0, starting at the same line ll.
+
+    return temp2;
+
+}
+
+
 
