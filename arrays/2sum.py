@@ -17,3 +17,27 @@ class Solution(object):#we are maintaining a hash table for the visited elements
             if diff in d:#iterations it will check wheather the diff of the target and the end,present in the
                 return [d[diff],i]#hash table or not....
             d[n]=i#
+
+'''
+2sum java brute
+tc->O(n^2)
+sc->O(1)
+
+//brute force
+public class Solution {
+    public static int[] twoSum(int arr[], int n,int target) {
+        // Write your code here.
+        // int[] result=new int[2];
+        for(int i=0;i<n;i++){
+            for(int j=i+1;j<n;j++){
+                if(arr[i]+arr[j]==target){
+                    return new int[]{i,j};
+                }
+            }
+        }
+        return new int[]{-1,-1};
+
+    }
+}
+
+'''
