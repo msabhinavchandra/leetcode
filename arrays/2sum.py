@@ -40,4 +40,27 @@ public class Solution {
     }
 }
 
+
+better approach
+using hashmap
+tc->O(n) for numbeer of elements in the array
+sc->O(n) for the elements which are stored in the hashmap.
+
+import java.util.*;
+public class Solution {
+    public static String read(int n, int []book, int target){
+        // Write your code here.
+        HashMap<Integer,Integer> mpp=new HashMap<>();
+        for(int i=0;i<n;i++){
+            int num=book[i];
+            int moreNeeded=target-num;
+            if(mpp.containsKey(moreNeeded)){
+                return "YES";
+            }
+            mpp.put(num, i);
+        }
+        return "NO";
+    }
+}
+
 '''
