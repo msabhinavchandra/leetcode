@@ -1,7 +1,7 @@
-
 // 2sum java brute
 // tc->O(n^2)
 // sc->O(1)
+
 
 //brute force
 public class Solution {
