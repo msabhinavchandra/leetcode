@@ -4,6 +4,7 @@ class Solution(object):
             nums[i]=nums[i]**2
 
         return sorted(nums)
+    
 #alternate 
 class Solution:
     def sortedSquares(self, nums: List[int]) -> List[int]:
