@@ -21,7 +21,7 @@ class Solution(object):
         
         #alternate
         
-        class Solution(object):
+class Solution(object):
     def isPalindrome(self, s):
         # i=0
         tp=''
@@ -41,7 +41,7 @@ class Solution(object):
         :rtype: bool
         """
         
-        #alternate way of checking the alphanumeric with the help of ascii
+#alternate way of checking the alphanumeric with the help of ascii
         def isalphanum(self,n):
             return (ord('A')<=ord(n)<=ord('Z') or
                     ord('a')<=ord(n)<=ord('z') or

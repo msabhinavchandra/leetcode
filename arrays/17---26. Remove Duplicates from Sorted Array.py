@@ -2,8 +2,6 @@ class Solution(object):
     def removeDuplicates(self, nums):
         lf=1
         rt=1
-       
-        
         while rt<len(nums):
             if nums[rt-1]==nums[rt]:
                 rt=rt+1

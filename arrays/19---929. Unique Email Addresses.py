@@ -7,10 +7,9 @@ class Solution(object):
             local=local.replace(".","")
             uniq.add((local,domain))
         return len(uniq)
+    
 
-
-alternate
-
+#alternate
 
 class Solution(object):
     def numUniqueEmails(self, emails):
