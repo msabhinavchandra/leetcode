@@ -42,7 +42,7 @@ class Solution(object):
         """
         
 #alternate way of checking the alphanumeric with the help of ascii
-        def isalphanum(self,n):
-            return (ord('A')<=ord(n)<=ord('Z') or
-                    ord('a')<=ord(n)<=ord('z') or
-                    ord('0')<=ord(n)<=ord('9'))
+def isalphanum(self,n):
+    return (ord('A')<=ord(n)<=ord('Z') or
+            ord('a')<=ord(n)<=ord('z') or
+            ord('0')<=ord(n)<=ord('9'))
