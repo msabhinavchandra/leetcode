@@ -18,3 +18,5 @@ class Solution(object):#we are maintaining a hash table for the visited elements
                 return [d[diff],i]#hash table or not....
             d[n]=i#
 
+
+
