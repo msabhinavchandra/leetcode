@@ -10,15 +10,10 @@ class Solution(object):
                 lfsum=lfsum+nums[pivot]
                 pivot=pivot+1
                 rtsum=rtsum-nums[pivot]
-            else:
+            else:   
                 return pivot
         if lfsum==rtsum:
             return pivot
-        
-
-
-
-
         return -1
 
 #alternate
@@ -40,18 +35,13 @@ class Solution(object):
                 return pivot
         # if lfsum==rtsum:
         #     return pivot
-        
-
-
-
-
         return -1
 
         """
         :type nums: List[int]
         :rtype: int
         """
-       #alternate
+#alternate
 class Solution(object):
     def pivotIndex(self, nums):
         lfsum=0
