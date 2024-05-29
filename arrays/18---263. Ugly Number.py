@@ -15,6 +15,8 @@ class Solution(object):
 
 
 #alternate
+#O(log2(n)+log5(n)+log3(n))->TC
+#Space->O(1)
 class Solution(object):
     def isUgly(self, n):
         if n<=0:

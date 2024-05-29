@@ -28,7 +28,7 @@ class Solution(object):
         :rtype: int
         """
 
-#alternate KrishnaPriya
+#alternate #KrishnaPriya
 class Solution(object):
     def singleNumber(self, nums):
         ans=0
