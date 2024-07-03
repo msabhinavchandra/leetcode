@@ -120,7 +120,7 @@ if __name__ == "__main__":
     ans = findKRotation(arr)
     print("The array is rotated", ans, "times.")
 
-90--540. Single Element in a Sorted Array,leetcode
+# 90--540. Single Element in a Sorted Array,leetcode
 
 
 class Solution:
