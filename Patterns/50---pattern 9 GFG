@@ -18,7 +18,7 @@ for i in range(N):
     print("")
     
     #alternate
-    class Solution:
+class Solution:
     def printTriangle1(self, N):
         for i in range(N):
     # print("")
