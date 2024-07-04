@@ -12,17 +12,10 @@ class Solution(object):
                     else:
                         return 0
                     for j in range(k):
-                        # v=len(nums)-1
-                        # g=nums[v]
                         k=max(nums)+j
                         summ=summ+k
-                        # nums[v]=g+1
                         k=k+1
-                        # nums.replace(g,g+1)
-                        
                     return summ
-                    
-                   
             else:
                 return 0
         else:
