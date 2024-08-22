@@ -20,6 +20,21 @@ def detectCycle(head) :
     # Write your code here.
     # pass
 
+#Equivalent Java Code
+'''public class Solution {
+    public boolean hasCycle(ListNode head) {
+        Set<ListNode> hashTable=new HashSet<>();
+        ListNode temp=head;
+        while(temp!=null){
+            if(hashTable.contains(temp)) return true;
+            hashTable.add(temp);
+            temp=temp.next;
+        }
+        return false;
+        
+    }
+}'''
+
 
 
 
@@ -52,7 +67,26 @@ def detectCycle(head) :
 
 # go and research about the math, on why this actually works and all the next time you revise this.
 
+#Equivalent Java Code
+'''
+public class Solution {
+    public boolean hasCycle(ListNode head) {
+        if(head==null) return false;
 
+        ListNode fast=head;
+        ListNode slow=head;
+
+        while(fast!=null && fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+            if(slow==fast) return true;
+        }
+        return false;
+
+        
+    }
+}
+'''
 
 
 

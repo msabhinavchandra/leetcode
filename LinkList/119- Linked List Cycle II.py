@@ -1,15 +1,5 @@
 # brute force
 
-'''
-Following is the structure of the Node class already defined.
-
-class Node:
-    def __init__(self, data):
-        self.data = data
-        self.next = None
-        
-'''
-
 def firstNode(head):
     # Write your code here
     # pass
@@ -22,17 +12,25 @@ def firstNode(head):
     
     return None
 
+#Equivalent Java Code
+'''
+public class Solution {
+    public ListNode detectCycle(ListNode head) {
+
+        Set<ListNode> set=new HashSet<>();
+        ListNode temp=head;
+        while(temp!=null){
+            if(set.contains(temp)) return temp;
+            set.add(temp);
+            temp=temp.next;
+        }   
+        return null;     
+    }
+}
+'''
+
 # optimal
 
-'''
-Following is the structure of the Node class already defined.
-
-class Node:
-    def __init__(self, data):
-        self.data = data
-        self.next = None
-        
-'''
 
 def firstNode(head):
     slow=head
@@ -50,6 +48,30 @@ def firstNode(head):
     
     return None
 
+#Java Equivalent Code
+
+'''
+public class Solution {
+    public ListNode detectCycle(ListNode head) {
+        ListNode slow=head;
+        ListNode fast=head;
+
+        while(fast!=null && fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+            if(slow==fast){
+                ListNode temp=head;
+                while(temp!=fast){
+                    temp=temp.next;
+                    fast=fast.next;
+                }
+                return temp;
+            }
+        }
+        return null;
+    }
+}
+'''
 
 
 

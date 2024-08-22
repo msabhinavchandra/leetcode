@@ -10,9 +10,29 @@ Node* reverseLinkedList(Node *head)
         return head;
     }
     Node* newhead=reverseLinkedList(head->next);
-    Node* front=head->next;
+    Node* front=head->next; 
     front->next=head; 
     head->next=NULL;
     return newhead;
 
 }
+
+//Equivalent Java
+'''
+class Solution {
+    public ListNode reverseList(ListNode head) {
+
+        if(head==null || head.next==null){
+            return head;
+        }
+        ListNode newhead=reverseList(head.next);
+        ListNode front=head.next;
+        front.next=head;
+        head.next=null;
+        return newhead;
+
+
+        
+    }
+}
+'''
