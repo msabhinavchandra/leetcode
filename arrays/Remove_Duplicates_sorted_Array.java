@@ -19,3 +19,22 @@ class Solution {
 
     }
 }
+
+//Myself logic to code successfull conversion
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        if(nums.length==0||nums.length==1) return nums.length;
+        int lf=0;
+        int rt=1;
+        while(rt<nums.length){
+            if(nums[lf]==nums[rt]){
+                rt+=1;
+            }else if(nums[lf]!=nums[rt]){
+                lf+=1;
+                nums[lf]=nums[rt];
+                rt+=1;
+            }
+        }
+        return lf+1;
+    }
+}

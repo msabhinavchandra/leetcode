@@ -24,3 +24,19 @@ class Solution {
 
     }
 }
+
+//WTO Swapping
+class Solution {
+    public void moveZeroes(int[] nums) {
+        int lf = 0;
+        for (int rt = 0; rt < nums.length; rt++) {
+            if (nums[rt] != 0) {
+                nums[lf] = nums[rt];
+                lf += 1;
+            }
+        }
+        for (int i = lf; i < nums.length; i++) {
+            nums[i] = 0;
+        }
+    }
+}
