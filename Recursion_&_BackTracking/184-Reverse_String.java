@@ -33,3 +33,52 @@ Sample Output-2:
 ----------------
 54321
 */
+
+//Pranay's
+
+import java.util.*;
+public class Solution{
+    
+    public static void main(String args[]){
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        String[] arr=s.split("");
+        reverse(arr,0,s.length()-1);
+        for(int i=0;i<arr.length;i++){
+            System.out.print(arr[i]);
+        }
+    }
+    
+    public static void reverse(String[] s,int i,int j){
+        if(i<=j){
+            String t=s[j];
+            s[j]=s[i];
+            s[i]=t;
+            reverse(s,i+1,j-1);
+        }
+    }
+}
+
+//Abhinav's
+
+import java.util.*;
+
+class Solution{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        String str=sc.nextLine();
+        if(str.equals("")){ System.out.println("");return;}
+        char[] tempCharArray=str.toCharArray();
+        reverseString(tempCharArray,0,str.length()-1);
+        System.out.println(new String(tempCharArray));
+    }
+    public static void reverseString(char[] str,int left,int right){
+        if(left>=right) return;
+        char tmp=str[right];
+        str[right]=str[left];
+        str[left]=tmp;
+        // right--;
+        // left++;
+        reverseString(str,left+1,right-1);
+    }
+}

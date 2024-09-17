@@ -88,3 +88,40 @@ public class StringCombinationsBacktracking {
         }
     }
 }
+
+//For tessellator
+
+import java.util.*;
+
+class HelloWorld{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        String str=sc.nextLine();
+        List<String> result=new ArrayList<>();
+        Substring(result,new StringBuilder(),str,0);
+        Collections.reverse(result);
+        for(String s:result){
+            System.out.println(s);
+        }
+        
+    }
+    public static void Substring(List<String> result,StringBuilder curr,String s,int start){
+        
+        //if we traversed the entire string, add the result
+        if(start==s.length()){
+            result.add(curr.toString());
+            return;
+        }
+        
+        for(int i=start+1;i<=s.length();i++){
+            String part=s.substring(start,i);
+            int lenBefore=curr.length();
+            
+            curr.append("{").append(part).append("}");
+            
+            Substring(result,curr,s,i);
+            
+            curr.setLength(lenBefore);
+        }
+    }
+}

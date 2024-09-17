@@ -43,3 +43,39 @@ The smallest number is 3 and the largest number is 8.
 The GCD of 3 and 8 is 1.
 
  */
+
+//Recursive once check for array of numbers
+
+import java.util.*;
+
+class Solution{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int [] nums=new int[n];
+        for(int i=0;i<n;i++){
+            nums[i]=sc.nextInt();
+        }
+        if (nums.length==1) System.out.println(nums[0]);
+        int gcd=Gcd(nums[0],nums[1]);
+        if(nums.length==2){
+            System.out.println(gcd);
+            return;
+        }
+        int max=Arrays.stream(nums).max().getAsInt();
+        int min=Arrays.stream(nums).min().getAsInt();
+        // for(int i=2;i<n;i++){
+        //     int tdivisor=gcd;
+        //     int tdividend=nums[i];
+            gcd=Gcd(min,max);
+        // }
+        
+        System.out.println(gcd);
+        
+    }
+    public static int Gcd(int divisor,int dividend){
+        int rem=dividend%divisor;
+        if(rem==0) return divisor;
+        return Gcd(rem,divisor);
+    }
+}
