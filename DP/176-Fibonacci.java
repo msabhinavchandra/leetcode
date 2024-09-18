@@ -79,3 +79,30 @@ public class Fibonacci {
         System.out.println(prev);
     }
 }
+
+//Telescope
+import java.util.Scanner;
+
+public class FibonacciSeriesRecursive {
+
+    // Recursive method to calculate the nth Fibonacci number
+    public static int fibonacci(int n) {
+        if (n == 0) return 0;
+        if (n == 1) return 1;
+        return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+
+    // Method to print Fibonacci series up to n numbers
+    public static void printFibonacciSeries(int n) {
+        for (int i = 0; i < n; i++) {
+            System.out.print(fibonacci(i) + " ");
+        }
+        System.out.println(); // To move to the next line after printing the series
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt(); // Read the number of Fibonacci numbers to generate
+        printFibonacciSeries(n); // Print the Fibonacci series up to n numbers
+    }
+}
