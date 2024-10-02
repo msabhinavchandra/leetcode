@@ -100,7 +100,7 @@ public class KthSymbol {
 
 
 
-//One more check it in future... it is with pranav
+//Abhinav's
 //Optimal TC->O(NlogK) and SC->O(N)
 class Solution {
     public int kthGrammar(int N, int K) {
@@ -117,7 +117,8 @@ class Solution {
     }
 }
 
-//Once check it in future
+// --------------------------------------------------------------------------------------------------
+//Once check it in future(Pranav)
 public class KthSymbol {
     
     // Recursive method to find the k-th symbol in the n-th row

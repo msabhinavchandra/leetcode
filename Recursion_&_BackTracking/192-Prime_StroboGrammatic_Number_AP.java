@@ -101,3 +101,57 @@ class HelloWorld {
     }
     
 }
+
+//Varuns
+
+import java.util.*;
+
+public class is_strobo_prime_AP{
+    static public boolean isStrobo(HashMap<Character,Character> map,String s, int i, int j){
+        if(i>j){
+            return true;
+        }
+        if(map.containsKey(s.charAt(i))){
+            if(map.get(s.charAt(i)) != s.charAt(j)){
+                return false;
+            }
+            return isStrobo(map, s, i+1, j-1);
+        }
+        return false;
+    }
+    static public boolean isPrime(int n){
+        if(n<=1){
+            return false;
+        }
+        for(int i = 2;i<Math.sqrt(n);i++){
+            if(n%i == 0){
+                return false;
+            }
+        }
+        return true;
+    }
+    public static void main(String[] args) {
+
+        Scanner sc =  new Scanner(System.in);
+        int n = sc.nextInt();
+
+        HashMap<Character,Character> arr = new HashMap<Character,Character>();
+        arr.put('0','0');
+        arr.put('1','1');
+        arr.put('8','8');
+        arr.put('6','9');
+        arr.put('9','6');
+
+        String a = Integer.toString(n);
+        
+        boolean strobo = isStrobo(arr,a,0,a.length()-1);
+        boolean stroboPrime = false;
+        if(strobo){
+            stroboPrime = isPrime(n);
+        }
+        System.out.println(strobo + " " + stroboPrime);
+        
+        sc.close();
+        
+    }
+}
