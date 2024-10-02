@@ -48,3 +48,29 @@ false
 Explanation:
 The process does not reach 1 and starts repeating numbers. Hence, 2 is not a happy number.
 */
+
+import java.util.*;
+
+class Solution{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int num=sc.nextInt();
+        boolean result=isHappy(num);
+        System.out.println(result);
+    }
+    
+    public static boolean isHappy(int num){
+        if(num==1) return true;
+        if(num==4) return false;
+        return isHappy(sumOfSquares(num));
+    }
+    
+    public static int sumOfSquares(int num){
+        int sum=0;
+        while(num>0){
+            sum=sum+ (int)Math.pow(num%10,2);
+            num=num/10;
+        }
+        return sum;
+    }
+}

@@ -266,7 +266,7 @@ class Solution:
             
         return lf
 
-#same problem CPP
+#same problem in java is available.
 
 
 #95---Minimum days to make M bouquets | Binary Search(leetcode 1482)
