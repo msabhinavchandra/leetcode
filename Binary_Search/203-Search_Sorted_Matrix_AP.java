@@ -123,3 +123,171 @@ public class search_sorted_matrix_AP{
         sc.close();
     }
 }
+
+//Abhinav's brute force solution
+//Time complexity: O(rows*cols) and space complexity: O(1) 
+import java.util.*;
+
+public class Solution{
+    
+    public static void searchInASortedMatrix(int[][] mat,int target){
+         // Check if the matrix is empty
+         //if no of rows=0, or no of cols=0
+        if (mat.length == 0 || mat[0].length == 0) {
+            System.out.println(-1);
+            return;
+        }
+        
+        int n = mat.length;  
+        int m = mat[0].length; 
+        
+        // Traverse the matrix
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if (mat[i][j] == target) {
+                    // Return true if target is found
+                    System.out.println(i+" "+j); 
+                    return;
+                }
+            }
+        }
+        // Return false if target is not found
+        System.out.println(-1);
+        return; 
+    }
+}
+
+//Abhinav's Better solution
+// TC->O(rows+log(cols)) and SC->O(1)
+
+public static void searchInASortedMatrix(int[][] mat,int target){
+         // Check if the matrix is empty
+         //if no of rows=0, or no of cols=0
+        if (mat.length == 0 || mat[0].length == 0) {
+            System.out.println(-1);
+            return;
+        }
+        
+        int n = mat.length;  
+        int m = mat[0].length; 
+        
+        // Traverse the matrix
+        for (int i = 0; i < n; i++) {
+            
+            if(mat[i][0]<=target && target<=mat[i][m-1]){
+                int indC=BS(mat[i],target);
+                if(indC!=-1){ 
+                    System.out.println(i+" "+indC);
+                    return;
+                }
+                else{
+                    System.out.println(-1);
+                    return;
+                }
+            }
+            
+        }
+        // Return false if target is not found
+        System.out.println(-1);
+        return; 
+    }
+
+//Abhinav's Optimal tapadia sir
+//Time complexity: O(log(rows)+log(cols)) and space complexity: O(1)
+import java.util.*;
+
+public class Solution{
+    
+    public static int BS(int[] arr,int target){
+        int low=0;
+        int high=arr.length-1;
+        while(low<=high){
+            int mid=(low+high)/2;
+            if(arr[mid]==target) return mid;//return the index
+            else if(arr[mid]>target) high=mid-1;
+            else low=mid+1;
+        }
+        return -1;
+    }
+    
+    public static int BSEnd(int[][] mat,int target){//returns row of 
+    //desired element.
+        int lastIndex=mat[0].length-1;
+        int low=0;int high=mat.length-1;//i am find for no of rows
+        while(low<=high){
+            int mid=(low+high)/2;
+            if(mat[mid][lastIndex]==target) return mid;//if found that row.
+            else if(mat[mid][lastIndex]>target) high=mid-1;
+            else low=mid+1;
+        }
+        //if not found
+        //low will settle in a place where that element is just greater than
+        //target element.
+        if(low<mat.length)
+            return low;
+            
+        return -1;
+    }
+    
+    public static void searchInASortedMatrix(int[][] mat,int target){
+         // Check if the matrix is empty
+         //if no of rows=0, or no of cols=0
+        if (mat.length == 0 || mat[0].length == 0) {
+            System.out.println(-1);
+            return;
+        }
+        
+        int row=BSEnd(mat,target);
+        if(row!=-1) {
+        int col=BS(mat[row],target);
+        if(col!=-1){
+            System.out.println(row+" "+col);
+            return;
+        }
+        }
+        System.out.println(-1);
+
+    }
+}
+
+ //Abhinav's Optimal Striver 
+
+//  Time complexity: O(log(rows*cols)) and space complexity: O(1)
+
+import java.util.*;
+
+public class Solution{    
+    public static void searchInASortedMatrix(int[][] mat,int target){
+         // Check if the matrix is empty
+         //if no of rows=0, or no of cols=0
+        if (mat.length == 0 || mat[0].length == 0) {
+            System.out.println(-1);
+            return;
+        }
+        int noOfRows=mat.length;
+        int noOfCols=mat[0].length;
+        
+        int low=0;
+        int high=noOfRows*noOfCols-1;
+        
+        while(low<=high){
+            
+            int mid=(low+high)/2;
+            
+            //converting into matrices co-ordinates.
+            int row=mid/noOfCols;
+            int col=mid%noOfCols;
+            
+            if(mat[row][col]==target){
+                System.out.println(row+" "+col);
+                return;
+            }
+            else if(mat[row][col]>target) high=mid-1;
+            else low=mid+1;
+            
+        }//end of while
+        
+        System.out.println(-1);
+
+    }
+}
