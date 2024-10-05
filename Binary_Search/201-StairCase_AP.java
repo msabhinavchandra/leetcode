@@ -92,3 +92,55 @@ public class staircase_AP{
         sc.close();
     }
 }
+
+
+//Abhinav's brute
+
+import java.util.*;
+
+public class Solution{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        System.out.println(noOfRows(n));
+    }
+    
+    public static int noOfRows(int bricks){
+        if(bricks==1||bricks==0) return bricks;//base edge case condition.
+        int answer=1;
+        for(int i=0;i<bricks;i++){
+            if(i*(i+1)/2<=bricks) answer=i;
+            else break;
+        }return answer;
+    }
+}
+
+//Abhinav's optimized
+//sometimes it might not work for large inputs.so we need to change the data type to long.
+//data type sometimes to make things work.
+import java.util.*;
+
+public class Solution{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        long n=sc.nextInt();
+        System.out.println(noOfRows(n));
+    }
+    
+    public static long noOfRows(long bricks){
+        if(bricks==1||bricks==0) return bricks;//base edge case condition.
+        long answer=1;
+        long low=1;
+        long high=bricks;
+        while(low<=high){
+            long mid=(low+high)/2;
+            if(mid*(mid+1)/2<=bricks){
+                answer=mid;
+                low=mid+1;
+             }else{ 
+            high=mid-1;
+            }
+        }//end of while.
+        return answer;
+    }
+}

@@ -95,3 +95,54 @@ public class perfect_square_AP{
         sc.close();
     }
 }
+
+// Abhinav's brute
+
+/*
+Time complexity->O(n)
+and Space complexity->O(1)
+*/
+import java.util.*;
+
+public class Solution{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        System.out.println(isPerfectSquare(n));
+    }
+    public static boolean isPerfectSquare(int n){
+        if(n==0) return true;
+        for(int i=0;i<=n;i++){
+            if(i*i==n) return true;
+            else if(i*i>n) return false;
+        }
+        return false;
+    }
+}
+
+// Abhinav's optimized
+
+/*
+Time complexity->O(n)
+and Space complexity->O(1)
+*/
+import java.util.*;
+
+public class Solution{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        long n=sc.nextInt();
+        System.out.println(isPerfectSquare(n));
+    }
+    public static boolean isPerfectSquare(long n){
+        if(n==0) return true;
+        long low=1;long high=n;
+        while(low<=high){
+            long mid=(low+high)/2;
+            if(mid*mid==n) return true;
+            else if(mid*mid>n) high=mid-1;
+            else low=mid+1;
+        }
+        return false;
+    }
+}

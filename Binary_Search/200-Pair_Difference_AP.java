@@ -96,3 +96,45 @@ public class pair_difference_AP{
     }
 
 }
+
+//Abhinav's Mine
+
+import java.util.*;
+
+public class Solution{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int size=sc.nextInt();
+        List<Integer> arr=makeArray(size,sc);
+        int k=sc.nextInt();
+        Collections.sort(arr);
+        printPairs(arr,k);
+    }
+    
+    public static boolean isExists(List<Integer> arr,int target){
+        int low=0;
+        int high=arr.size()-1;
+        while(low<=high){
+            int mid=(low+high)/2;
+            if(arr.get(mid)==target) return true;
+            else if(arr.get(mid)>target) high=mid-1;
+            else low=mid+1;
+        }
+        return false;
+    }
+    
+    public static void printPairs(List<Integer> arr,int k){
+        for(int i=0;i<arr.size();i++){
+            int target=arr.get(i)+k;
+            if(isExists(arr,target)) System.out.println(arr.get(i)+" "+target);
+        }
+    }
+    
+    public static List<Integer> makeArray(int size,Scanner sc){
+        List<Integer> result=new ArrayList<>();
+        for(int i=0;i<size;i++){
+            result.add(sc.nextInt());
+        }
+        return result;
+    }
+}
