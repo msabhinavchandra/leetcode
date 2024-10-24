@@ -106,3 +106,84 @@ public class Solution {
         System.out.println(result);
     }
 }
+
+
+//Abhinav's
+
+class Solution {
+    public String longestCommonPrefix(String[] strs) {
+        if (strs == null || strs.length == 0) return "";
+        int minLen = Integer.MAX_VALUE;
+        StringBuilder sb=new StringBuilder();
+        // Find the minimum length of the strings in the array
+        for (String str : strs) {
+            minLen = Math.min(minLen, str.length());
+        }
+        int low = 0;
+        int high = minLen-1;
+
+        while (low <= high) {
+            int mid = (low + high) / 2;
+            if (isCommonPrefix(strs, mid+1)) {
+                sb.append(strs[0].substring(low,mid+1));
+                low = mid + 1; // Look for a longer prefix
+            } else {
+                high = mid - 1; // Look for a shorter prefix
+            }
+        }
+
+        return sb.toString().length()==0?"":sb.toString();
+
+    }
+
+    private static boolean isCommonPrefix(String[] arr, int length) {
+        String prefix = arr[0].substring(0, length);
+        for (int i = 1; i < arr.length; i++) {
+            if (!arr[i].startsWith(prefix)) return false;
+             // Check if current string starts with the prefix
+        }
+        return true;
+    }
+
+}
+
+//Small followup
+
+class Solution {
+    public String longestCommonPrefix(String[] strs) {
+        if (strs == null || strs.length == 0) return "";
+        int minLen = Integer.MAX_VALUE;
+        StringBuilder sb=new StringBuilder();
+        String small="";
+        // Find the minimum length of the strings in the array
+        for (String str : strs) {
+            minLen = Math.min(minLen, str.length());
+            if(minLen==str.length())  small=str;
+        }
+        int low = 0;
+        int high = minLen-1;
+
+        while (low <= high) {
+            int mid = (low + high) / 2;
+            if (isCommonPrefix(strs, mid+1)) {
+                sb.append(small.substring(low,mid+1));
+                low = mid + 1; // Look for a longer prefix
+            } else {
+                high = mid - 1; // Look for a shorter prefix
+            }
+        }
+
+        return sb.toString().length()==0?"":sb.toString();
+
+    }
+
+    private static boolean isCommonPrefix(String[] arr, int length) {
+        String prefix = arr[0].substring(0, length);
+        for (int i = 1; i < arr.length; i++) {
+            if (!arr[i].startsWith(prefix)) return false;
+             // Check if current string starts with the prefix
+        }
+        return true;
+    }
+
+}
