@@ -84,25 +84,25 @@ class Solution {
     
     public static int calcMinBanaPerHour(List<Integer> arr,int targetTime){
         int low=1;int high=calMaxEleInArray(arr);
-        int result=-1;
+        
         while(low<=high){
             int mid=(low+high)/2;
-            int hours=calTotHours(arr,mid);
+            int hours=calcTotHours(arr,mid);
             if(hours==targetTime){
-                result=hours;
+                
                 high=mid-1;
             }
             else if(hours<targetTime) high=mid-1;
             else if(hours>targetTime) low=mid+1;
         }
     
-        return result;
+        return low;
     }
     
     public static int calcTotHours(List<Integer> arr,int hours){
         int totalHours=0;
         for(int i=0;i<arr.size();i++){
-            totalHours+= Math.ceil((double)arr.get(i)/hours(double));
+              totalHours+= Math.ceil((double)arr[i]/(double)hours);
         }
         return totalHours;
     }
@@ -112,5 +112,6 @@ class Solution {
         for(int i=0;i<arr.size();i++){
             maxEle=Math.max(maxEle,arr.get(i));
         }
+         return maxEle;
     }
 }
