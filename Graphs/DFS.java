@@ -18,3 +18,57 @@ class DFS{
     }
 
 }
+
+//Iterative
+
+import java.util.*;
+
+class Solution{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        ArrayList<ArrayList<Integer>> adj=new ArrayList<ArrayList<Integer>>();
+        int noOfVertices=sc.nextInt();
+        for(int i=0;i<noOfVertices;i++){
+            adj.add(new ArrayList<>());
+        }
+        
+        int noOfEdges=sc.nextInt();
+        
+        for(int i=0;i<noOfEdges;i++){
+            int v1=sc.nextInt();int v2=sc.nextInt();
+            adj.get(v1).add(v2);
+            // adj.get(v2).add(v1);
+        }
+        
+        int src=sc.nextInt();
+        
+        List<Integer> result=dfs(src,adj);
+        
+        for(int i=0;i<result.size();i++){
+            System.out.print(result.get(i)+" ");
+        }
+        
+    }
+    
+    public static List<Integer> dfs(int src,ArrayList<ArrayList<Integer>> adj){
+        Stack<Integer> stk=new Stack<>();
+        boolean[] vis=new boolean[adj.size()];//for those many no of edges.
+        List<Integer> result=new ArrayList<>(); 
+        List<Integer> temp=new ArrayList<>();
+        stk.push(src);
+        vis[src]=true;
+        while(!stk.isEmpty()){
+            int n=stk.pop();
+            result.add(n);
+            temp=adj.get(n);
+            for(int i=temp.size()-1;i>=0;i--){
+                int k=temp.get(i);
+                if(!vis[k]){
+                    stk.push(k);
+                    vis[k]=true;
+                }
+            }
+        }
+        return result;
+    }
+}
