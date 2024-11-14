@@ -19,15 +19,14 @@ class Solution {
             List<Integer> room = queue.poll();
             // whatever i am polling from the queue all are visited already
             // i am polling them to check their neighbours
-            // List<Integer> Neighbours=new ArrayList<>();
+           
             for (Integer a : room) {
                 if (!visited[a]) {
                     visited[a] = true;
                     queue.add(rooms.get(a));
                 }
             }
-            // if(!Neighbours.isEmpty()) queue.add(Neighbours);
-            // Neighbours.clear();
+           
         }
 
         for (boolean t : visited) {
