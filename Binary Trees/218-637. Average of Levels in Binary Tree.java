@@ -29,3 +29,36 @@ class Solution {
 
     }
 }
+
+//Follow up
+// find the largest element in every row of the tree
+
+public List<Integer> largestValues(BinaryTreeNode root) 
+	{
+        //Write your code here and return a list
+        // Write your code here and return a list
+        List<Integer> result = new ArrayList<>();
+        Queue<BinaryTreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            int n = queue.size();
+            // i should add my result these many no of times
+            // and divide my sum these many no of times
+            int max = Integer.MIN_VALUE;
+            for (int i = 0; i < n; i++) {
+                BinaryTreeNode node = queue.poll();
+                max=Math.max(max,node.data);
+                // after adding the nodes, check for it's neighbours and add them too.
+                if (node.right != null && node.right.data!=-1) {
+                    queue.add(node.right);
+                }
+                if (node.left != null && node.left.data!=-1) {
+                    queue.add(node.left);
+                }
+            }
+            
+            result.add(max);
+
+        }
+        return result;
+    }
