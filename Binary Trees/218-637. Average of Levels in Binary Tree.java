@@ -62,3 +62,35 @@ public List<Integer> largestValues(BinaryTreeNode root)
         }
         return result;
     }
+
+//Largest Values using DFS
+
+class Solution 
+{
+    public List<Integer> largestValues(BinaryTreeNode root) 
+	{
+        //Write your code here and return a list
+        List<Integer> result=new ArrayList<>();
+        getLargeValues(root,result,0);
+        return result;
+    }
+
+    //Your supporting methods(if any) goes here
+    
+    public void getLargeValues(BinaryTreeNode root,List<Integer> result,int level){
+        if(root==null|| root.data==-1){
+            return;
+        }
+        else if(level==result.size()){
+            result.add(root.data);
+        }
+        else{
+            result.set(level,Math.max(root.data,result.get(level)));
+        }
+        
+        getLargeValues(root.left,result,level+1);
+        getLargeValues(root.right,result,level+1);
+        
+        
+    }
+}
