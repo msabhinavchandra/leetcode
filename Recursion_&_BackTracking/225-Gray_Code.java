@@ -88,3 +88,43 @@ class GrayCodeBacktracking {
     System.out.println(gc.grayCode());
   }
 }
+
+//Leetcode my Solution
+
+class Solution {
+    public List<Integer> grayCode(int n) {
+
+        List<Integer> result = new ArrayList<>();
+        Set<Integer> set = new HashSet<>();
+        result.add(0);
+        set.add(0);
+        if (grayCodeHelper(0, n, result, set))
+            return result;
+
+        return result;
+
+    }
+
+    public boolean grayCodeHelper(int curr, int noOfBits, List<Integer> result, Set<Integer> visited) {
+
+        // base condition
+        if (result.size() == (int) Math.pow(2, noOfBits))
+            return true;
+        // check for all possible cases
+        for (int i = 0; i < noOfBits; i++) {
+            int next = curr ^ (int) Math.pow(2, i);
+            if (!visited.contains(next)) {
+                result.add(next);
+                visited.add(next);
+                if (grayCodeHelper(next, noOfBits, result, visited))
+                    return true;
+                // if this possibility doesn't end up giving the answer
+                // backtrack
+                result.remove(next);
+                visited.remove(next);
+            }
+        }
+        return false;
+
+    }
+}
