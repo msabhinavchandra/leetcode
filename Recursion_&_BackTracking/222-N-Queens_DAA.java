@@ -73,7 +73,7 @@ public class NQueenProblem {
 	        if(isSafe(board,i,col)==true){
 	            
 	            board[i][col]=1;
-	            
+	        
 	            //if my life is turned out well by placing the queen at this above position
 	            //then i will go with it :)
 	            if(QueenAllocate(board,col+1)==true) return true;
@@ -106,7 +106,7 @@ public class NQueenProblem {
 	    int i,j;
 	    
 	    // will check by left end row
-	    
+
 	    for(j=col;j>=0;j--){
 	        if(board[row][j]==1) return false;
 	    }

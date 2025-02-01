@@ -29,16 +29,14 @@ static int matrixMultiplication(int[] arr, int N){
     int i =1;
     int j = N-1;
     
-    
     return f(arr,i,j);
     
-    
 }
 
 }
 
 
-//Tabulation
+//Memoization
 
 class Solution {
   static int matrixMultiplication(int arr[]) {

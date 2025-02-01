@@ -88,6 +88,7 @@ class Solution {
    public static boolean DFS(int[][] grid, int strr, int strc, boolean[][] vis) {
         // base condition if the start row and coll reach the destination
         if (grid[grid.length - 1][grid[0].length - 1] == 0) return false;
+        
         if (strr == grid.length - 1 && strc == grid[0].length - 1) {
             if (grid[strr][strc] == 1)
                 return true;

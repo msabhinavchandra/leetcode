@@ -6,7 +6,7 @@ class Solution {
         int[][] dp = new int[length][length]; 
 
         for (int i = 0; i < length; ++i) {
-            
+
             for (int j = i + 1; j < length; ++j) {
 
                 if (s.charAt(i) == s.charAt(j)) {

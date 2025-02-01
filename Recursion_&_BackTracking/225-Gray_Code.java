@@ -64,11 +64,11 @@ class GrayCodeBacktracking {
   }
 
   private boolean grayCodeHelper(List<Integer> result, int current) {
-    if (result.size() == (int)Math.pow(2, n))
+    if (result.size() == 1<<n )
         return true; // Valid sequence found
 
-    for (int i = 0; i < n; i++) { 
-      int next = current ^ (int)Math.pow(2, i); // Flip the ith bit
+    for (int i = 0; i < n; i++) { // Try all possible bits
+      int next = current ^ 1<<i; // Flip the ith bit
       if (!result.contains(next)) { // Ensure no duplicates
         result.add(next);
         if (grayCodeHelper(result, next)) 
