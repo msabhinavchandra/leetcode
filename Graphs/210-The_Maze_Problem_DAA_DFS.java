@@ -124,3 +124,61 @@ class Solution {
         return false;
     }
 }
+
+//Rev at hacker Earth
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.*;
+class TestClass {
+    static int[][] buf={{1,0},{0,1}};// 0 for row & 1 for column
+    public static void main(String args[] ) throws Exception {
+        Scanner sc=new Scanner(System.in);
+
+        int N=sc.nextInt();
+        for(int i=0;i<N;i++){
+            int input=sc.nextInt();
+            int[][] grid=new int[input][input];
+            //input the grid
+            for(int r=0;r<input;r++){
+                for(int c=0;c<input;c++){
+                    grid[r][c]=sc.nextInt();
+                }
+            }//end of for
+            boolean[][] vis=new boolean[input][input];
+            int[] dest={input-1,input-1};
+            if(DFS(vis,0,0,dest,grid)){
+                System.out.println("POSSIBLE");
+            }else{
+                System.out.println("NOT POSSIBLE");
+            }
+
+
+        }//end of for
+    }//end od main
+
+        public static boolean DFS(boolean[][] vis,int r,int c,int[] destination,int[][] maze){
+        //i will call this only if it is unvisited
+        vis[r][c]=true;
+        int R=maze.length;int C=maze[0].length;
+        if(r==destination[0]&&c==destination[1]) return true;
+
+        //traverse all the unvisited neighbours in 4 diff directions
+        for(int k=0;k<2;k++){
+
+            int nr=r+buf[k][0];int nc=c+buf[k][1];
+
+            if(inBound(nr,nc,R,C) && vis[nr][nc]==false && maze[nr][nc]==1){
+                if(DFS(vis,nr,nc,destination,maze)) return true;
+            }
+
+        }
+        return false;
+
+    }
+        public static boolean inBound(int r,int c,int rl,int cl){
+        if(r>=0&&r<rl&&c>=0&&c<cl) return true;
+        return false;
+    }
+}
+

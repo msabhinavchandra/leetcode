@@ -8,14 +8,13 @@ class Solution {
 
         }
         }
-
         return false;
 
     }
 
-             boolean checkStartingFromHere(int r,int c,int pos,boolean[][] vis,String word,char[][] board){
+            boolean checkStartingFromHere(int r,int c,int pos,boolean[][] vis,String word,char[][] board){
             //base condition for success
-        int rl=board.length;int cl=board[0].length;
+            int rl=board.length;int cl=board[0].length;
 
             if(pos==word.length())
                 return true;

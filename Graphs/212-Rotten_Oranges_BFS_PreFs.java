@@ -88,3 +88,92 @@ class Solution {
         return false;
     }
 }
+
+//Revision
+class Solution {
+    class Pair {
+        int row;
+        int col;
+
+        Pair(int r, int c) {
+            row = r;
+            col = c;
+        }
+    }
+
+    Queue<Pair> queue = new LinkedList<>();
+    int[][] buf = { { 0, -1 }, { -1, 0 }, { 1, 0 }, { 0, 1 } };
+
+    public int orangesRotting(int[][] grid) {
+        int R = grid.length;
+        int C = grid[0].length;
+        boolean[][] vis = new boolean[R][C];
+        int res = Integer.MAX_VALUE;
+        boolean done = false;
+        for (int r = 0; r < R; r++) {
+            for (int c = 0; c < C; c++) {
+                if (grid[r][c] == 2) {
+
+                    queue.add(new Pair(r, c));
+                    vis[r][c] = true;
+
+                }
+            }
+
+        }
+        res = BFS(grid, vis);
+        boolean two = false;
+        for (int r = 0; r < R; r++) {
+            for (int c = 0; c < C; c++) {
+                if (grid[r][c] == 1 && vis[r][c] == false) {
+                    // call bfs, it returns the
+                    return -1;
+                }
+                if (grid[r][c] == 2)
+                    two = true;
+            }
+        }
+        if (!two)
+            return 0;
+        return res - 1;
+
+    }
+
+    public int BFS(int[][] grid, boolean[][] vis) {
+        // queue.add(new Pair(r,c));
+        int res = 0;
+
+        int R = grid.length;
+        int C = grid[0].length;
+        while (!queue.isEmpty()) {
+
+            int ntimes = queue.size();
+
+            for (int i = 0; i < ntimes; i++) {
+
+                Pair p = queue.poll();
+                int row = p.row;
+                int col = p.col;
+                for (int k = 0; k < 4; k++) {
+                    int nr = row + buf[k][0];
+                    int nc = col + buf[k][1];
+                    if (inBound(nr, nc, R, C) && vis[nr][nc] == false && grid[nr][nc] == 1) {
+                        vis[nr][nc] = true;
+                        queue.add(new Pair(nr, nc));
+                    }
+                }
+
+            }
+            res++;
+
+        }
+        return res;
+    }
+
+    public boolean inBound(int r, int c, int rl, int cl) {
+        if (r >= 0 && r < rl && c >= 0 && c < cl)
+            return true;
+        return false;
+    }
+
+}
