@@ -24,6 +24,7 @@ Sample Output2:
 1 1
 
  */
+/* ***U can do the same for finding the largest element also*** */
 //brute force
 // time complexity-> O(n*k) and space complexity-> O(1)
 import java.util.*;

@@ -203,7 +203,7 @@ public class ClosestPair {
     int absdiff = Integer.MAX_VALUE;
     int first = 0; // for l1
     int last = l2 - 1; // for l2
-    System.out.println("Inside the function ");
+    // System.out.println("Inside the function ");
     int diff = 0;
     while (first < l1 && last >= 0) {
       // do the sum
