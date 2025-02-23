@@ -111,3 +111,40 @@ public class BinaryTrips
         scanner.close();
     }
 }
+
+// mine
+class Solution {
+    public long minimumTime(int[] time, int totalTrips) {
+
+        long min = Long.MAX_VALUE;
+
+        for (int i = 0; i < time.length; i++) {
+            min = Math.min(min, time[i]);
+        }
+
+        long low = min;
+        long high = min * totalTrips;// max time required to complete all the
+        // trips
+
+        while (low <= high) {
+            long mid = low + (high - low) / 2;
+
+            if (isPossible(time, mid, totalTrips)) {
+                high = mid - 1;
+            } else
+                low = mid + 1;
+        }
+
+        return low;
+
+    }
+
+    public boolean isPossible(int[] time, long timeWeHave, int targetTrips) {
+        long totalTrips = 0;
+        for (int timeTaken : time) {
+            totalTrips += timeWeHave / timeTaken;
+        }
+        return targetTrips <= totalTrips;
+    }
+
+}
