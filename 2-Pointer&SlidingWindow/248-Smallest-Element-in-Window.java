@@ -155,7 +155,6 @@ public class SmallestElement{
         temp.add(arr[i]);
         
         System.out.print(Collections.min(temp)+" ");
-         
         
         }
     }
