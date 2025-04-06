@@ -104,13 +104,10 @@ public class ReverseVowels{
     public static void reverseVowels(String s,Set<Character> set){
         StringBuilder sb=new StringBuilder(s);
         int left=0;int right=s.length()-1;
-        
         while(left<=right){
-            
             while(!set.contains(Character.toLowerCase(s.charAt(left)))){
                 left++;
             }
-            
             while(!set.contains(Character.toLowerCase(s.charAt(right)))){
                 right--;
             }

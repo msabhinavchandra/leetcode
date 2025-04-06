@@ -39,15 +39,11 @@ Sample Output-2:
 
 import java.util.*;
 public class ThreeSumClosest {
-    public int threeSumClosest(int[] nums, int target)
-
-    {
+    public int threeSumClosest(int[] nums, int target){
         int absDiff = Integer.MAX_VALUE;
         Arrays.sort(nums);
         int result = 0;
-        for (int i = 0; i < nums.length; i++)
-
-        {
+        for (int i = 0; i < nums.length; i++){
             int take = nums[i];
             int newTarget = (target - take);
             int internal = twoSum(i, nums, newTarget);
@@ -55,9 +51,7 @@ public class ThreeSumClosest {
             if (sum == target)
                 return sum;
             int diff = Math.abs(sum - target);
-            if (diff < absDiff)
-
-            {
+            if (diff < absDiff){
                 absDiff = diff;
                 result = sum;
             }
@@ -65,17 +59,14 @@ public class ThreeSumClosest {
         return result;
     }
 
-    public int twoSum(int ignore, int[] nums, int target)
-
-    {
-        // need to return the sum
+    public int twoSum(int ignore, int[] nums, int target){
+        // need to return the sum of two numbers in nums[] which is closest to target
+        // ignore the number at index ignore
         int result = 0;
         int left = 0;
         int right = nums.length - 1;
         int absDiff = Integer.MAX_VALUE;
-        while (left < right)
-
-        {
+        while (left < right){
             if (left == ignore)
                 left++;
             if (right == ignore)
@@ -84,31 +75,23 @@ public class ThreeSumClosest {
                 break;
             int sum = nums[left] + nums[right];
             int diff = Math.abs(sum - target);
-            if (diff < absDiff)
-
-            {
+            if (diff < absDiff){
                 absDiff = diff;
                 result = sum;
             }
             if (sum == target)
                 return result;
-            if (sum > target)
-
-            {
+            if (sum > target){
                 right--;
             }
-            if (sum < target)
-
-            {
+            if (sum < target){
                 left++;
             }
         }
         return result;
     }
 
-    public static void main(String[] args)
-
-    {
+    public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         ThreeSumClosest ts = new ThreeSumClosest();
         int size = sc.nextInt();

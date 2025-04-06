@@ -72,7 +72,7 @@ public class RotateArray{
             result[modifiedPos]=arr[i];
         }
 
-        
+
         for(int i=0;i<size;i++){
             System.out.print(result[i]+" ");
         }

@@ -61,10 +61,10 @@ class Solution {
       // concerns and
       // updations.
       if (hash[s.charAt(right)] != -1) { // the right element is alr visited.
-        // update left
+        // update left 
         left = Math.max(left, hash[s.charAt(right)] + 1);
       }
-      len = right - left + 1; // new lenght of that window
+      len = right - left + 1; // new lenght of that window 
       maxLen = Math.max(maxLen, len);
       // update the visited hashmap for the future check concerns for repeated chars
       hash[s.charAt(right)] = right; // with that current right index.

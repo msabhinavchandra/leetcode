@@ -43,7 +43,7 @@ public class SmallestElement {
 
   public static void findSmallestElements(int size, int[] arr, int k) {
     List<Integer> temp = new ArrayList<>();
-    // add the first element
+    // add the first element 
     if (arr.length == 1) {
       System.out.println(arr[0]);
       return;
