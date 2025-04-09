@@ -198,10 +198,9 @@ public class ClosestPair {
 
     System.out.println(result[0] + "," + result[1]);
   }
-  public static void findPair(
-      int l1, int[] arr1, int l2, int[] arr2, int target, int[] result) {
-    int absdiff = Integer.MAX_VALUE;
-    int first = 0; // for l1
+  public static void findPair(int l1, int[] arr1, int l2, int[] arr2, int target, int[] result) {
+    int absdiff = Integer.MAX_VALUE; 
+    int first = 0; // for l1 
     int last = l2 - 1; // for l2
     // System.out.println("Inside the function ");
     int diff = 0;
