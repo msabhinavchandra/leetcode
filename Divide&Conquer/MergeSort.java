@@ -45,7 +45,7 @@ Sample Output-2:
 */
 
 import java.util.*;
-public class Solution{
+class Solution{
 
     public static void merge(int[] arr, int low, int high){
         int mid = (low+high)/2;

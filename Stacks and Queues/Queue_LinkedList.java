@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class LinkedListQueueExample {
+class LinkedListQueueExample {
     public static void main(String[] args) {
         Queue<String> queue = new LinkedList<>();
 

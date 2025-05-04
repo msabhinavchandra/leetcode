@@ -1,7 +1,11 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.Stack;
 //recursive
 class DFS{
 
-    public static void dfsOfaGraph(int start,List<List<<Integer>> AdjLs,boolean[] vis,List<Integer> ans)
+    public static void dfsOfaGraph(int start,List<List<Integer>> AdjLs,boolean[] vis,List<Integer> ans)
     {
         //Mark the node a visited
         vis[start]=true;//make it infected.
@@ -10,7 +14,7 @@ class DFS{
         ans.add(start);//bus ekkiyyu.
 
         //traverse all it's neighbours, check for it's friends
-        for(int n:adj.get(start)){
+        for(int n:AdjLs.get(start)){
             if(vis[n]==false){
               //if friends are not infected call dfs(friend)
                 dfsOfaGraph(n,AdjLs,vis,ans);

@@ -11,7 +11,7 @@ class Treenode{
   }
 }
 
-public class Main{
+ class Main{
     
     static List<Integer> preorder=new ArrayList<>(); 
     static List<Integer> levelord=new ArrayList<>();

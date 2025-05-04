@@ -1,6 +1,7 @@
 
 import java.util.*;
-public class SegmentTree {
+
+class SegmentTree {
   class SegmentTreeNode {
     int start, end;
     SegmentTreeNode left, right;
@@ -16,6 +17,7 @@ public class SegmentTree {
   }
 
   SegmentTreeNode root = null;
+
   public SegmentTree(int[] nums) {
     root = buildTree(nums, 0, nums.length - 1);
     printTree(root);
@@ -28,6 +30,7 @@ public class SegmentTree {
     printTree(root.left);
     printTree(root.right);
   }
+
   private SegmentTreeNode buildTree(int[] nums, int start, int end) {
     if (start > end) {
       return null;
@@ -63,6 +66,7 @@ public class SegmentTree {
     }
     printTree(root);
   }
+
   public int sumRange(int i, int j) {
     return sumRange(root, i, j);
   }
@@ -70,8 +74,8 @@ public class SegmentTree {
   public int sumRange(SegmentTreeNode root, int start, int end) {
     if (root.start == start && root.end == end) {
       return root.sum;
-    }
-    else {
+    } else {
+      int mid = (root.start + root.end) / 2;
       if (end <= mid) {
         return sumRange(root.left, start, end);
       } else if (start >= mid + 1) {

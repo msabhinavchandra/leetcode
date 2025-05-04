@@ -51,7 +51,7 @@ The target 7 is not found in the array, so the output is -1. */
 
 import java.util.*;
 
-public class Solution{
+class Solution{
     public static int search(int[] arr, int target,int low,int high){
         int left = low;
         int right = high;

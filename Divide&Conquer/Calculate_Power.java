@@ -37,7 +37,7 @@ Sample Output-2:
 
 import java.util.*;
 
-public class Solution {
+class Solution {
     static public float power(int x, int y) {
         if (y == 0)
             return 1;

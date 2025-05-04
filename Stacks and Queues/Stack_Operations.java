@@ -1,6 +1,6 @@
 import java.util.Stack;
 
-public class StackExample {
+class StackExample {
     public static void main(String[] args) {
         // Create a stack of integers
         Stack<Integer> stack = new Stack<>();

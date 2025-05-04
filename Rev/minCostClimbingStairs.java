@@ -1,6 +1,6 @@
 //recursive
 //[10,15,20] output:15
-
+import java.util.Arrays;
 class Sol{
     static int minCostClimbingStairsRecursive(int[] cost) {
 

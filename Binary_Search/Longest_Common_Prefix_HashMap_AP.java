@@ -45,7 +45,7 @@
 // There is no common prefix among the input strings.
 
 import java.util.*;
-public class longestCP_Hashmap_SP{
+class longestCP_Hashmap_SP{
     private static String smallestString(String[] arr ){
         String smallest = arr[0];
         for(int i = 1; i<arr.length; i++){

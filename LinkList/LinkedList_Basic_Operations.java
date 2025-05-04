@@ -20,7 +20,7 @@ class Node {
     }
 }
 
-public class LinkedListOperations {
+class LinkedListOperations {
 
     public static void display(Node head) {
         Node temp = head;

@@ -1,3 +1,4 @@
+
 //brute
 //TC->O(n) and SC->O(n)
 import java.util.HashMap;
@@ -6,7 +7,7 @@ import java.util.Map;
 class Solution {
     public int singleNumber(int[] nums) {
         Map<Integer, Integer> d = new HashMap<>();
-        
+
         // First loop to populate the HashMap
         for (int i = 0; i < nums.length; i++) {
             if (!d.containsKey(nums[i])) {
@@ -28,16 +29,16 @@ class Solution {
     }
 }
 
-//optimal
-//TC->O(n) and SC->O(1)
-class Solution {
+// optimal
+// TC->O(n) and SC->O(1)
+class Solution1 {
     public int singleNumber(int[] nums) {
         int ans = 0;
-        
+
         for (int i = 0; i < nums.length; i++) {
             ans = nums[i] ^ ans;
         }
-        
+
         return ans;
     }
 }

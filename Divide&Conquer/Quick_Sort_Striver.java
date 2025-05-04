@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class QuickSort {
+class QuickSort {
 
     // Method to partition the array
     private static int partition(int[] arr, int low, int high) {

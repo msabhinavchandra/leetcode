@@ -45,7 +45,7 @@ The number 2 appears 4 times, which is more than n/2 = 3.5, so it is the majorit
  */
 
 import java.util.*;
-public class Solution {
+class Solution {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();

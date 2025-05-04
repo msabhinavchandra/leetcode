@@ -21,7 +21,7 @@ class Solution {
 }
 
 //Myself logic to code successfull conversion
-class Solution {
+class Solution2 {
     public int removeDuplicates(int[] nums) {
         if(nums.length==0||nums.length==1) return nums.length;
         int lf=0;
