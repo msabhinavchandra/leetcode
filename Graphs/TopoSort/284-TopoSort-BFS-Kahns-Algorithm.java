@@ -13,7 +13,8 @@ class Solution {
         }
 
         Queue<Integer> q = new LinkedList<Integer>();
-        ;
+        // Adding all the nodes with indegree 0
+        // to the queue
         for (int i = 0; i < V; i++) {
             if (indegree[i] == 0) {
                 q.add(i);
@@ -41,7 +42,7 @@ class Solution {
     }
 }
 
-public class tUf {
+class tUf {
     public static void main(String[] args) {
         int V = 6;
         ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
@@ -61,4 +62,46 @@ public class tUf {
         }
         System.out.println("");
     }
+}
+
+// my way of writing
+
+class Solution2 {
+
+  public int[] topoSort(int V, List<List<Integer>> adj) {
+
+    Queue<Integer> queue = new LinkedList<>();
+    int[] indegee = new int[V];
+    int[] result = new int[V];
+    int ptr = 0;
+    for (List<Integer> neighbors : adj) {
+      for (int each : neighbors) {
+        indegee[each]++;
+      }
+    }
+
+    for (int i = 0; i < V; i++) {
+
+      if (indegee[i] == 0) {
+        queue.add(i);
+      }
+    }
+
+    while (!queue.isEmpty()) {
+
+      int element = queue.poll();
+      result[ptr++] = element;
+
+      // negate the neighbors
+
+      for (int n : adj.get(element)) {
+        indegee[n]--;
+        if (indegee[n] == 0) {
+          queue.add(n);
+        }
+      }
+    }
+
+    return result;
+  }
 }
