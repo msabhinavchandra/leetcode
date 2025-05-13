@@ -40,9 +40,15 @@ class Solution {
                 children++;
                 parent[v] = u;
                 dfs(v, disc, low, parent, ap, adj);
-
+// have a test case in your mind whenever your learning any new
+// algorithm so that coding it becomes more condifent and intuitive 
+// and more logically friendly to you.
                 low[u] = Math.min(low[u], low[v]);
-
+// solve for one test case and then solve for all the test cases
+//check all the possiblities for this single test case, and write the code for it
+// and then you will be able to solve for all the test cases
+// have a test case in your mind while you are
+// revising the algorithm also.
                 // Case 1: u is root and has two or more children
                 if (parent[u] == -1 && children > 1) {
                     ap[u] = true;
