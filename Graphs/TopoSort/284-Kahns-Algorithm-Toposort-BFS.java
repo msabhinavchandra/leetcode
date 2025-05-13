@@ -1,5 +1,0 @@
-package TopoSort;
-
-class KahnsAlgorithmToposortBFS {
-    
-}
