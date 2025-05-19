@@ -5,7 +5,7 @@
 // (from a completely balanced to a completely unbalanced scenario).
 
 
-public class Solution {
+class Solution {
     // i need not create an ibject to call this method that is the reason
     // i am creating it a public static method.
     public static Node insertLevelOrder(int[] Arr, Node root, int i, int n) {
