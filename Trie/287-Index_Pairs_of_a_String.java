@@ -1,31 +1,42 @@
 import java.util.ArrayList;
 import java.util.List;
 
-class Trie {
-    // Trie array to hold references to child nodes.
-    Trie[] children = new Trie[26];
-    // Flag to denote the end of a word.
-    boolean isEndOfWord = false;
+class TrieNode {
+    TrieNode[] children;
+    boolean isEndOfWord;
 
-    // Method to insert a word into the Trie.
+    public TrieNode() {
+        children = new TrieNode[26]; // a-z
+        isEndOfWord = false;
+    }
+}
+
+class Trie {
+    TrieNode root;
+
+    public Trie() {
+        root = new TrieNode();
+    }
+
+    // Insert a word into the trie
     public void insert(String word) {
-        Trie node = this;
-        for (char ch : word.toCharArray()) {
-            int index = ch - 'a'; // Normalize the character to an index 0-25.
-            // If the child node at that index doesn't exist, create a new Trie node.
+        TrieNode node = root;
+
+        for (char c : word.toCharArray()) {
+            int index = c - 'a';
+
             if (node.children[index] == null) {
-                node.children[index] = new Trie();
+                node.children[index] = new TrieNode();
             }
-            // Move to the child node.
+
             node = node.children[index];
         }
-        // Mark the end of the word.
+
         node.isEndOfWord = true;
     }
 }
 
 class Solution {
-
     public List<int[]> indexPairs(String text, String[] words) {
         // Your code goes here
         // Initialize a Trie and insert all words from the array.
@@ -40,9 +51,9 @@ class Solution {
         List<int[]> matchingIndexPairs = new ArrayList<>();
 
         // Loop through the text to find all index pairs where words begin.
-        for (int startIndex = 0; startIndex < textLength; ++startIndex) {
-            Trie node = trie;
-            for (int endIndex = startIndex; endIndex < textLength; ++endIndex) {
+        for (int startIndex = 0; startIndex < textLength; startIndex++) {
+            TrieNode node = trie.root;
+            for (int endIndex = startIndex; endIndex < textLength; endIndex++) {
                 // Calculate the index in the Trie children array that corresponds to the
                 // current character.
                 int idx = text.charAt(endIndex) - 'a';

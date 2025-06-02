@@ -20,7 +20,7 @@ class ParallelCourses {
         Queue<Integer> queue = new LinkedList<>();
         for (int i = 1; i < numCourses; i++) {
             if (indegree[i] == 0) {
-                queue.offer(i);
+                queue.add(i);
             }
         }
         int semesters = 0;
@@ -32,7 +32,7 @@ class ParallelCourses {
                 coursesTaken++;
                 for (int v = 1; v <= numCourses; v++) {
                     if (graph[u][v] == 1 && --indegree[v] == 0)
-                        queue.offer(v);
+                        queue.add(v);
                 }
             }
             semesters++;

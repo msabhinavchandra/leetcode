@@ -5,7 +5,6 @@ class Solution{//0-based indexing
         ArrayList<Integer> bfs=new ArrayList<>();
         boolean vis[]=new boolean[V+1];//+1 for 1-based indexing.
         Queue<Integer> q=new LinkedList<>();
-
         vis[St]=true;//Infect
         q.add(St);//Chamber
         while(!q.isEmpty()){//Till the chamber is empty

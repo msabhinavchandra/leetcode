@@ -154,38 +154,30 @@ class Solution2 {
         ArrayList<Integer>[] adjList = constructAl(V, edges);
         ArrayList<Integer> result = new ArrayList<>();
         Stack<Integer> stk = new Stack<>();
-
         for (int i = 0; i < V; i++) {
-            if (!visited[i]) {
+            if (!visited[i])
                 DFS(i, visited, adjList, stk);
-            }
+
         }
         for (int i = 0; i < V; i++) {
             int n = stk.pop();
             result.add(n);
         }
-
         return result;
 
     }
 
-    public static void DFS(int i, boolean[] visited, ArrayList<Integer>[] adjList, Stack<Integer> stk) {
+public static void DFS(int i, boolean[] visited, ArrayList<Integer>[] adjList, Stack<Integer> stk) {
         visited[i] = true;
-
         // call dfs for all it's neighbours
-
         for (int n : adjList[i]) {
             // if univisited make the DFS call
-            if (!visited[n]) {
+            if (!visited[n])
                 DFS(n, visited, adjList, stk);
-            }
         }
-
         // once all the neighbours are visited,all my friends are done
         // you should cross me first to go to them. so maybe i am the
         // first
         stk.push(i);
-
     }
-
 }

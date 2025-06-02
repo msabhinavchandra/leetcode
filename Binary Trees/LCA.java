@@ -1,3 +1,4 @@
+
 /*
 You are given a binary tree with unique values for its nodes and two distinct nodes p and q. 
 Your task is to find the Lowest Common Ancestor (LCA) of these two nodes.
@@ -74,7 +75,8 @@ class LCA {
 
     // Helper method to build tree from level order list
     private static Node buildTree(List<Integer> values) {
-        if (values.isEmpty() || values.get(0) == -1) return null;
+        if (values.isEmpty() || values.get(0) == -1)
+            return null;
         Node root = new Node(values.get(0));
         Queue<Node> queue = new LinkedList<>();
         queue.add(root);
@@ -99,13 +101,14 @@ class LCA {
 class Solution {
     // Finds the LCA of two nodes given their values
     Node lowestCommonAncestor(Node root, int p, int q) {
-        if (root == null) return null;
-        if (root.data == p || root.data == q) return root;
-
+        if (root == null)
+            return null;
+        if (root.data == p || root.data == q)
+            return root;
         Node left = lowestCommonAncestor(root.left, p, q);
         Node right = lowestCommonAncestor(root.right, p, q);
-
-        if (left != null && right != null) return root;
+        if (left != null && right != null)
+            return root;
         return left != null ? left : right;
     }
 }

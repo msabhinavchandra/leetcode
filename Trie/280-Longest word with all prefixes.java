@@ -1,5 +1,102 @@
 import java.util.*;
 
+// my code
+
+class TrieNode {
+    TrieNode[] children;
+    boolean isEndOfWord;
+
+    TrieNode() {
+        children = new TrieNode[26];
+        isEndOfWord = false;
+    }
+}
+
+class Trie {
+    TrieNode root;
+
+    Trie() {
+        root = new TrieNode();
+    }
+
+    void insert(String word) {
+        TrieNode node = root;
+        for (char c : word.toCharArray()) {
+            int index = c - 'a';
+
+            if (node.children[index] == null) {
+                node.children[index] = new TrieNode();
+            }
+
+            node = node.children[index];
+        }
+        node.isEndOfWord = true;
+    }
+
+    boolean searchWord(String word) {
+        TrieNode node = root;
+
+        for (char c : word.toCharArray()) {
+            int index = c - 'a';
+
+            if (node.children[index] == null)
+                return false;
+
+            node = node.children[index];
+        }
+
+        return node.isEndOfWord;
+    }
+}
+
+class Solution {
+
+    public boolean isComplete(Trie trie, String word) {
+
+        // check for every substring
+        boolean flag = true;
+        for (int i = 1; i <= word.length(); i++) {
+            // TrieNode node=trie.root;
+            String temp = word.substring(0, i);
+            if (!trie.searchWord(temp)) {
+                flag = false;
+            }
+        }
+
+        return flag;
+    }
+
+    public String completeString(List<String> words) {
+        // code here
+
+        Trie trie = new Trie();
+
+        for (String str : words) {
+            trie.insert(str);
+        }
+
+        // after inserting all the words check for every single
+        // one of them
+
+        String result = "";
+
+        for (String str : words) {
+
+            if (isComplete(trie, str) && result.length() < str.length()) {
+                result = str;
+            } else if (isComplete(trie, str) && result.length() == str.length()) {
+
+                if (str.compareTo(result) < 0)
+                    result = str;
+            }
+        }
+
+        return result;
+    }
+}
+
+// striver's code
+
 class Node {
     // To store references to child nodes
     Node[] links = new Node[26];
@@ -33,12 +130,12 @@ class Node {
 }
 
 // Class representing the Trie (Prefix Tree) structure
-class Trie {
+class Trie2 {
     // Root node of the Trie
     Node root;
 
     // Initializes the Trie
-    public Trie() {
+    public Trie2() {
         root = new Node();
     }
 
@@ -76,9 +173,9 @@ class Trie {
 }
 
 // Solution class to find the longest word with all its prefixes present
-class Solution {
+class Solution2 {
     public String completeString(List<String> nums) {
-        Trie obj = new Trie();
+        Trie2 obj = new Trie2();
 
         // Insert all words into the Trie
         for (String num : nums) {
@@ -101,17 +198,16 @@ class Solution {
     }
 }
 
-public class Main {
+class Main {
     public static void main(String[] args) {
         // Hardcoded test cases
-        List<String> testCase1 = Arrays.asList("n", "ni", "nin", "ninj" , "ninja" , "nil");
-       
+        List<String> testCase1 = Arrays.asList("n", "ni", "nin", "ninj", "ninja", "nil");
 
         // Creating a solution instance
         Solution sol = new Solution();
 
         // Running test cases
         System.out.println("Test Case 1: " + sol.completeString(testCase1)); // Expected: "ninja"
-       
+
     }
 }

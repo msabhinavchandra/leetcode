@@ -1,5 +1,7 @@
 package TopoSort;
+
 import java.util.*;
+
 class Solution {
 
     public ArrayList<Integer>[] constructAl(int num, int[][] prereq) {
