@@ -167,7 +167,7 @@ class Solution2 {
 
     }
 
-public static void DFS(int i, boolean[] visited, ArrayList<Integer>[] adjList, Stack<Integer> stk) {
+    public static void DFS(int i, boolean[] visited, ArrayList<Integer>[] adjList, Stack<Integer> stk) {
         visited[i] = true;
         // call dfs for all it's neighbours
         for (int n : adjList[i]) {

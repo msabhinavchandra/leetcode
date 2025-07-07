@@ -40,22 +40,24 @@ class SuffixTrie {
         node.isEndOfWord = true;
     }
 
-    // Recursive function to print all suffixes from the trie in lexicographical order
+    // Recursive function to print all suffixes from the trie in lexicographical
+    // order
     static void printAllSuffixes(SuffixTrieNode node, char[] buffer, int depth) {
-        if (node == null) return;
+        if (node == null)
+            return;
 
         // If current node marks end of a word, print the buffer up to current depth
         if (node.isEndOfWord) {
-            System.out.println(new String(buffer, 0, depth));
+            System.out.println(new String(buffer, 0, depth)); // Print the current suffix
         }
 
         // Traverse all possible children from 'a' to 'z'
         for (int i = 0; i < NUM_CHARS; i++) {
-            if (node.children[i] != null) { 
+            if (node.children[i] != null) {
                 buffer[depth] = (char) (i + 'a'); // Save character to buffer
                 printAllSuffixes(node.children[i], buffer, depth + 1); // Recurse deeper
             }
-        }
+        } 
     }
 
     public static void main(String[] args) {

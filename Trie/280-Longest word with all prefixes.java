@@ -23,11 +23,9 @@ class Trie {
         TrieNode node = root;
         for (char c : word.toCharArray()) {
             int index = c - 'a';
-
             if (node.children[index] == null) {
                 node.children[index] = new TrieNode();
             }
-
             node = node.children[index];
         }
         node.isEndOfWord = true;
@@ -35,24 +33,19 @@ class Trie {
 
     boolean searchWord(String word) {
         TrieNode node = root;
-
         for (char c : word.toCharArray()) {
             int index = c - 'a';
-
             if (node.children[index] == null)
                 return false;
 
             node = node.children[index];
         }
-
         return node.isEndOfWord;
     }
 }
 
 class Solution {
-
     public boolean isComplete(Trie trie, String word) {
-
         // check for every substring
         boolean flag = true;
         for (int i = 1; i <= word.length(); i++) {
@@ -62,24 +55,19 @@ class Solution {
                 flag = false;
             }
         }
-
         return flag;
     }
 
     public String completeString(List<String> words) {
         // code here
-
         Trie trie = new Trie();
 
         for (String str : words) {
             trie.insert(str);
         }
-
         // after inserting all the words check for every single
         // one of them
-
         String result = "";
-
         for (String str : words) {
 
             if (isComplete(trie, str) && result.length() < str.length()) {
@@ -90,7 +78,6 @@ class Solution {
                     result = str;
             }
         }
-
         return result;
     }
 }

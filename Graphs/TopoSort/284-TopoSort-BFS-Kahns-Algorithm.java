@@ -24,12 +24,10 @@ class Solution {
     int topo[] = new int[V];
     int i = 0;
     while (!q.isEmpty()) {
-      int node = q.peek();
-      q.remove();
+      int node = q.poll();
       topo[i++] = node;
       // node is in your topo sort
       // so please remove it from the indegree
-
       for (int it : adj.get(node)) {
         indegree[it]--;
         if (indegree[it] == 0) {
@@ -37,7 +35,6 @@ class Solution {
         }
       }
     }
-
     return topo;
   }
 }

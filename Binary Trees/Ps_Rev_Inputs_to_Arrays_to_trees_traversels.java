@@ -37,30 +37,26 @@ class Main {
 
         if (arr.length == 0)
             return null;
-
         Treenode root = new Treenode(arr[0]);
         Queue<Treenode> q = new LinkedList<>();
         q.add(root);
         int i = 1;
         while (i < arr.length) {
             Treenode curr = q.poll();
-
             // left
             if (i < arr.length) {
                 curr.left = new Treenode(arr[i]);
-                i++;
                 q.add(curr.left);
-            }
-
+                i++;
+            }// end of if
+            // right
             if (i < arr.length) {
                 curr.right = new Treenode(arr[i]);
-                i++;
                 q.add(curr.right);
-            }
-        }
-
+                i++;
+            }// end of if
+        }//end of while
         return root;
-
     }
 
     public static List<Integer> PreorderTraversal(Treenode root) {

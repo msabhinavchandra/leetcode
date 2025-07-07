@@ -99,7 +99,7 @@ class LCA {
 }
 
 class Solution {
-    // Finds the LCA of two nodes given their values
+    // Finds the LCA of two nodes given their values 
     Node lowestCommonAncestor(Node root, int p, int q) {
         if (root == null)
             return null;

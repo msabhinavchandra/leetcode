@@ -25,7 +25,7 @@ class ParallelCourses {
         }
         int semesters = 0;
         int coursesTaken = 0;
-        while (!queue.isEmpty()) {
+        while (!queue.isEmpty()) { 
             int coursesThisSemester = Math.min(queue.size(), maxCourses);
             for (int i = 0; i < coursesThisSemester; i++) {
                 int u = queue.poll();

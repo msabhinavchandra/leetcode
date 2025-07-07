@@ -32,22 +32,19 @@ false */
 
 import java.util.*;
 
-public class PalindromePermutation{
-    public static void main(String[] args){
-        Scanner sc=new Scanner(System.in);
-        String str=sc.next();
+class PalindromePermutation {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.next();
         System.out.println(isPalindrome(str));
     }
-    
-    public static boolean isPalindrome(String str){
-        int bitMask=0;
-        for(char chr:str.toCharArray()){
-           int numeric=chr-'a';
-           bitMask=bitMask^(1<<numeric);
+
+    public static boolean isPalindrome(String str) {
+        int bitMask = 0;
+        for (char chr : str.toCharArray()) {
+            int numeric = chr - 'a';
+            bitMask = bitMask ^ (1 << numeric);
         }
-        
-        return ( bitMask==0 || (bitMask&(bitMask-1))==0);
-        
+        return (bitMask == 0 || (bitMask & (bitMask - 1)) == 0);
     }
-    
 }

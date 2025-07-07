@@ -1,4 +1,5 @@
 import java.util.Arrays;
+
 class Solution {
     int[] rowBuf = { 0, 1, -1, 0 };
     int[] colBuf = { 1, 0, 0, -1 };
@@ -6,10 +7,8 @@ class Solution {
     int rl;
     int cl;
     int[][] matcopy;
-
     public int longestIncreasingPath(int[][] matrix) {
         // do it with the help of DFS along with DP
-        //
         this.rl = matrix.length;
         this.cl = matrix[0].length;
         this.matcopy = matrix;
@@ -33,31 +32,25 @@ class Solution {
                 // our current value will always be greater than
                 // this prev we passed so that we don't receive 0
                 // directly when we make the call for that respective cell
-
             }
-
         }
         return result;
     }
-
     // every DFS call for a respective cell will return the
     // LIP relative that respective positon (r,c)
     // and that result will be stored in the DP[][] Array
     public int DFS(int r, int c, int prev) {
-
         // if it is out of bounds return 0
         // because no contribution from that func call
         // int rl = matrix.length;
         // int cl = matrix[0].length;
-        if (!inBound(r, c, rl, cl) || !(matcopy[r][c] > prev))
+        if (!inBound(r, c, rl, cl) || !(matcopy[r][c] > prev))// base condition
             return 0;
-
         // if this is sth which is alr computed, it makes so sense
         // to write this first, for ur own understanding this is more
         // than best to write later after the whole logic is done writing
         if (dp[r][c] != -1)
-            return dp[r][c];
-
+            return dp[r][c]; 
         // considering this is the first call from the cell
         int lip = 1;// this is the least and the minimum for a cell
         // which is unvisited in itself even though
@@ -67,24 +60,18 @@ class Solution {
         // to every single of it's neighbour 4-directionally.
         // and the maximum path discovered across all the 4 directions
         // will finally be the result for this respective cell
-
         for (int k = 0; k < 4; k++) {
             int newRow = r + rowBuf[k];
             int newCol = c + colBuf[k];
             lip = Math.max(lip, 1 + DFS(newRow, newCol, matcopy[r][c]));
         }
-
         dp[r][c] = lip;
-
         return lip;
-
     }
-
     public boolean inBound(int r, int c, int rl, int cl) {
         if (r >= 0 && r < rl && c >= 0 && c < cl) {
             return true;
         }
         return false;
     }
-
 }

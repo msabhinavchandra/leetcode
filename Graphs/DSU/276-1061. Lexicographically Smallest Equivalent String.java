@@ -92,7 +92,7 @@ class Solution2 {
             }
         }
 
-        // union function 
+        // union function
         // if equal do sth, if unequal do sth else
         void union(int a, int b) {
             int pa = findParent(a);
@@ -104,7 +104,6 @@ class Solution2 {
             } else if (pa > pb) {
                 // join pb to pa
                 parent[pa] = pb;
-
             } else {
                 parent[pb] = pa;
             }
@@ -114,7 +113,7 @@ class Solution2 {
         int findParent(int n) {
             if (n == parent[n])
                 return n;
-            return parent[n]=findParent(parent[n]);// path compression
+            return parent[n] = findParent(parent[n]);// path compression
         }
 
     }

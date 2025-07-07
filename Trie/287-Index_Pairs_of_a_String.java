@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
 
+// index pairs of a string
+// Given a string text and an array of strings words, return a list of index pairs of
+
 class TrieNode {
     TrieNode[] children;
     boolean isEndOfWord;
