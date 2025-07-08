@@ -64,67 +64,69 @@ Sample Output-2:
 83
 */
 import java.util.*;
+
 class Main {
     public static void main(String[] args) {
-        Scanner sc=new Scanner(System.in);
-        int arrSize=sc.nextInt();
-        int noOfOps=sc.nextInt();
+        Scanner sc = new Scanner(System.in);
+        int arrSize = sc.nextInt();
+        int noOfOps = sc.nextInt();
         // i am taking the array as 1-based index
         // to not have any problems
-        int[] arr=new int[arrSize+1];
-        int[] Bit=new int[arrSize+1];
-        List<Integer> result=new ArrayList<>();
+        int[] arr = new int[arrSize + 1];
+        int[] Bit = new int[arrSize + 1];
+        List<Integer> result = new ArrayList<>();
         // first take the array input
-        for(int i=1;i<=arrSize;i++){
-            arr[i]=sc.nextInt();
+        for (int i = 1; i <= arrSize; i++) {
+            arr[i] = sc.nextInt();
         }
         // array input completed.
         // 1 for sum range
         // 2 for an update
         // i need to build the BIT
         // for which i will be needing the Update function.
-        for(int i=1;i<=arrSize;i++){
-            update(Bit,i,arr[i],arrSize);
+        for (int i = 1; i <= arrSize; i++) {
+            update(Bit, i, arr[i], arrSize);
         }
-        while(noOfOps-->0){
-            int op=sc.nextInt();
-            if(op==1){
+        while (noOfOps-- > 0) {
+            int op = sc.nextInt();
+            if (op == 1) {
                 // sum range query
-                int start=sc.nextInt(); int end=sc.nextInt();
-                int sum=sumRange(Bit,start,end,arrSize);
+                int start = sc.nextInt();
+                int end = sc.nextInt();
+                int sum = sumRange(Bit, start, end, arrSize);
                 result.add(sum);
-            }else if(op==2){
+            } else if (op == 2) {
                 // update query
-                int ind=sc.nextInt();
-                int val=sc.nextInt();
+                int ind = sc.nextInt();
+                int val = sc.nextInt();
                 // remove that val at that index
-                update(Bit,ind,-arr[ind],arrSize);
-                arr[ind]=val;
-                //add the new value there
-                update(Bit,ind,val,arrSize);
+                update(Bit, ind, -arr[ind], arrSize);
+                arr[ind] = val;
+                // add the new value there
+                update(Bit, ind, val, arrSize);
             }
         }
         System.out.println(result);
     }
-    
-    public static void update(int[] bit,int index,int val,int size){
-        while(index<=size){
-            bit[index]=bit[index]+val;
-            index=index+(index&-index);
+
+    public static void update(int[] bit, int index, int val, int size) {
+        while (index <= size) {
+            bit[index] = bit[index] + val;
+            index = index + (index & -index);
         }
     }
 
-    public static int sum(int[] bit,int index,int size){
-        int sum=0;
-        while(index>0){
-            sum=sum+bit[index];
-            index=index-(index&-index);
+    public static int sum(int[] bit, int index, int size) {
+        int sum = 0;
+        while (index > 0) {
+            sum = sum + bit[index];
+            index = index - (index & -index);
         }
         return sum;
     }
-    
-    public static int sumRange(int[] bit,int start,int end,int size){
-        return sum(bit,end,size)-sum(bit,start-1,size);
+
+    public static int sumRange(int[] bit, int start, int end, int size) {
+        return sum(bit, end, size) - sum(bit, start - 1, size);
     }
-    
+
 }
