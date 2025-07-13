@@ -29,7 +29,7 @@ Sample Input-2:
 5
 
 Sample Output-2:
---------------- 
+--------------- a
 [0,1,1,2,1,2]
 
 Explanation:
@@ -45,29 +45,26 @@ Explanation:
 
 import java.util.*;
 
-public class CountingBits{
-    public static void main(String[] args){
-        Scanner sc=new Scanner(System.in);
-        int n=sc.nextInt();
-        int[] result=countBits(n);
+class CountingBits {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] result = countBits(n);
         System.out.println(Arrays.toString(result));
     }
-    
-    public static int[] countBits(int n){
-        int[] result=new int[n+1];
-        for(int i=0;i<=n;i++){
-            result[i]=noOfBits(i);
+    public static int[] countBits(int n) {
+        int[] result = new int[n + 1];
+        for (int i = 0; i <= n; i++) {
+            result[i] = noOfBits(i);
         }
         return result;
     }
-    
-    public static int noOfBits(int n){
-        int cnt=0;
-        while(n>0){
-            n=n&(n-1);
+    public static int noOfBits(int n) {
+        int cnt = 0;
+        while (n > 0) {
+            n = n & (n - 1);
             cnt++;
         }
         return cnt;
     }
-    
 }
